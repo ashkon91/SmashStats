@@ -13,6 +13,6 @@
     "express": "^4.14.1"
   },
   "scripts": {
-    "postinstall": "./public install"
+    "postinstall": "./public/bower install"
   }
 }
