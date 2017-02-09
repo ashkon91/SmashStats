@@ -1,0 +1,23 @@
+{
+  "name": "smashstats",
+  "description": "Application for COGS120/CSE170.",
+  "main": "index.js",
+  "authors": [
+    "Harold Shen <hlshen@ucsd.edu>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ashkon91/SmashStats",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-ui-router": "^0.3.1",
+    "angular-bootstrap": "^1.3.3",
+    "angular-ui-grid": "^3.1.1"
+  }
+}

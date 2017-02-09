@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SmashStats">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SmashStats</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" rel="stylesheet">
+
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+
+</head><!--/head-->
+
+<body>
+
+    <div class="col-xs-12">
+    <nav class="navbar navbar-fixed-bottom navbar-inverse bg-inverse">
+      <div class="navbar" id="navbarNav">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item">
+                  <a class="nav-link" ui-sref="home" ng-class="{'active': activePage === 'home'}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" ui-sref="more" ng-class="{'active': activePage === 'more'}">More</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" ui-sref="stats" ng-class="{'active': activePage === 'stats'}">Stats</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" ui-sref="settings" ng-class="{'active': activePage === 'settings'}">Settings</a>
+              </li>
+          </ul>
+      </div>
+    </nav>
+</div>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="controllers/home.js"></script>
+    <script type="text/javascript" src="controllers/more.js"></script>
+    <script type="text/javascript" src="controllers/stats.js"></script>
+    <script type="text/javascript" src="controllers/settings.js"></script>
+
+
+
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+
+
+</body>
+</html>
