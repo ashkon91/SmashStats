@@ -7,10 +7,13 @@
     <meta name="author" content="">
     <title>SmashStats</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <link href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" rel="stylesheet">
 
 
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 
@@ -18,26 +21,63 @@
 
 <body>
 
-    <div class="col-xs-12">
-    <nav class="navbar navbar-fixed-bottom navbar-inverse bg-inverse">
-      <div class="navbar" id="navbarNav">
-          <ul class="nav navbar-nav navbar-right">
-              <li class="nav-item">
-                  <a class="nav-link" ui-sref="home" ng-class="{'active': activePage === 'home'}">Home</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" ui-sref="more" ng-class="{'active': activePage === 'more'}">More</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" ui-sref="stats" ng-class="{'active': activePage === 'stats'}">Stats</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" ui-sref="settings" ng-class="{'active': activePage === 'settings'}">Settings</a>
-              </li>
-          </ul>
-      </div>
+
+
+    <div class="container main-container">
+        <div ui-view></div>
+    </div>
+
+
+    <!--div class="navbar-more-overlay"></div-->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container">
+            <div class="navbar-header hidden-xs">
+                <a class="navbar-brand" href="#">smashstats</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right mobile-bar">
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" ui-sref="home" ng-class="{'active': activePage === 'home'}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" ui-sref="more" ng-class="{'active': activePage === 'more'}">More</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" ui-sref="stats" ng-class="{'active': activePage === 'stats'}">Stats</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" ui-sref="settings" ng-class="{'active': activePage === 'settings'}">Settings</a>
+                </li>
+            </ul>
+        </div>
     </nav>
-</div>
+
+
+
+
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('a[href="#navbar-more-show"], .navbar-more-overlay').on('click', function(event) {
+                event.preventDefault();
+                $('body').toggleClass('navbar-more-show');
+                if ($('body').hasClass('navbar-more-show'))	{
+                    $('a[href="#navbar-more-show"]').closest('li').addClass('active');
+                }else{
+                    $('a[href="#navbar-more-show"]').closest('li').removeClass('active');
+                }
+                return false;
+            });
+        });
+    </script>
+
+
+
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="controllers/home.js"></script>
     <script type="text/javascript" src="controllers/more.js"></script>
