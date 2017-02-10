@@ -100,3 +100,10 @@ body.navbar-more-show  {
 		display: none;
 	}
 }
+
+#barofdoom {
+    height: 40px;
+    background: #99ccff;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
