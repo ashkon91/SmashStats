@@ -35,6 +35,11 @@ angular
             templateUrl: 'views/train.html',
             controller: 'TrainCtrl'
         })
+        .state('addPrac', {
+            url: '/addPrac',
+            templateUrl: 'views/addPrac.html',
+            controller: 'AddPracCtrl'
+        })
         .state('addFriendly', {
             url: '/addFriendly',
             templateUrl: 'views/addFriendly.html',
