@@ -2,14 +2,14 @@
       <div class="col-sm-10 col-sm-offset-1 text-center">
         <h1 class="wow fadeIn">Add Practice</h1>
         <br />
-        <p id="subtext" class="lead wow fadeIn" data-wow-delay="0.5s">Choose your difficulty</p>
+        <p id="subtext" class="lead wow fadeIn" data-wow-delay="0.5s" ">{{difficultySelected}}</p>
         <br />
 
         <div class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
             <div class="row">
               <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
-                <a id="diff" href="" class="btn btn-primary btn-lg scroll">Easy</a>
+                <a id="diff" href="" class="btn btn-primary btn-lg scroll" ng-click="diffClicked()">Easy</a>
                 <a id="diff" href="" class="btn btn-primary btn-lg scroll">Medium</a>
                 <a id="diff" href="" class="btn btn-primary btn-lg scroll">Hard</a>
 
@@ -20,4 +20,3 @@
         </div>
       </div>
     </div
-    <script src="/js/jquery-1.11.0.js"></script>
