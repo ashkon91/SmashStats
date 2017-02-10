@@ -13,6 +13,7 @@ $(document).ready(function(){
 function initializePage(){
 	$("a#diff").click(function(e) {
 		var diff = $(this).first().text();
-		$("#subtext").first().text(diff + " difficulty selected!");
+		console.log(diff+"TEST");
+		$("#subtext").first().text(diff+" difficulty selected!");
 	})
 }
