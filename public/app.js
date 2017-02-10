@@ -30,4 +30,9 @@ angular
             templateUrl: 'views/settings.html',
             controller: 'SettingsCtrl'
         })
+        .state('train', {
+            url: '/train',
+            templateUrl: 'views/train.html',
+            controller: 'TrainCtrl'
+        })
 });
