@@ -35,4 +35,9 @@ angular
             templateUrl: 'views/train.html',
             controller: 'TrainCtrl'
         })
+        .state('addFriendly', {
+            url: '/addFriendly',
+            templateUrl: 'views/addFriendly.html',
+            controller: 'AddFriendlyCtrl'
+        })
 });
