@@ -1,5 +1,5 @@
 angular.module('SmashStats')
-.factory('SmashServices', function($http){
+.factory('SmashServices', function($http, $location){
 	var API_URL = $location.host + "/api";
 	return {
         exampleGet: function(success, error) {
