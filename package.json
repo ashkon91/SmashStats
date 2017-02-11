@@ -4,16 +4,20 @@
   "description": "Application for COGS120/CSE170. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "postinstall": "bower i"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bower": "^1.8.0",
-    "express": "^4.14.1"
+    "express": "^4.14.1",
+    "grunt": "^1.0.1"
   },
-  "scripts": {
-    "start": "node server.js",
-    "postinstall": "bower i"
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-notify": "^3.0.0"
   }
 }
