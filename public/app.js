@@ -12,6 +12,11 @@ angular
             templateUrl: 'views/login.html',
             controller: 'LoginCtrl'
         })
+        .state('newPlayer', {
+            url:'/newPlayer',
+            templateUrl: 'views/newPlayer.html',
+            controller: 'NewPlayerCtrl'
+        })
         .state('home', {
             url: '/home',
             templateUrl: 'views/home.html',
