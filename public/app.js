@@ -24,9 +24,7 @@ angular
         })
         .state('stats', {
             url: '/stats',
-        /*    params: {
-                key:value
-            },*/
+
             templateUrl: 'views/stats.html',
             controller: 'StatsCtrl'
         })
@@ -39,6 +37,14 @@ angular
             url: '/train',
             templateUrl: 'views/train.html',
             controller: 'TrainCtrl'
+        })
+        .state('tech', {
+            url: '/tech',
+            templateUrl: 'views/tech.html',
+            controller: 'TechCtrl',
+            params: {
+                tech: null
+            }
         })
         .state('addPrac', {
             url: '/addPrac',
@@ -54,4 +60,3 @@ angular
 .controller(function($scope, $rootScope){
     $rootScope.isLoggedIn = false;
 });
-

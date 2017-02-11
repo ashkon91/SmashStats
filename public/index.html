@@ -29,10 +29,10 @@
 
 
     <!--div class="navbar-more-overlay"></div-->
-    <nav class="navbar navbar-inverse navbar-fixed-bottom" ng-if="isLoggedIn" style="position:absolute">
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" ng-if="isLoggedIn">
         <div class="container">
             <div class="navbar-header hidden-xs">
-                <a class="navbar-brand" href="#">smashstats</a>
+                <a class="navbar-brand" href="/">smashstats</a>
             </div>
 
             <ul class="nav navbar-nav navbar-right mobile-bar">
@@ -86,6 +86,8 @@
     <script type="text/javascript" src="controllers/addFriendly.js"></script>
     <script type="text/javascript" src="controllers/addPrac.js"></script>
     <script type="text/javascript" src="controllers/login.js"></script>
+    <script type="text/javascript" src="controllers/tech.js"></script>
+    <script type="text/javascript" src="services/SmashServices.js"></script>
 
 
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
