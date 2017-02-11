@@ -1,3 +1,11 @@
-<div class="row header-info">
-    Add some friendlies here
+<div class="row header-info"> Player 1 Char </div>
+<div class="select_list" ng-class='{active:active}' ng-click="active=!active">
+    <span ng-style="{'background-image':'url('+obj.character_selected.url+')'}">{{obj.character_selected.name}}</span>
+    <ul class="options">
+        <li class="select_list_option" ng-repeat="character in character_list" ng-click="obj.character_selected=character" ng-style="{'background-image':'url('+character.url+')'}">{{character.name}}</li>
+        </ul>
+</div>
+
+<div class="row">
+    <a ng-click='win(p1)' class="btn btn-primary btn-lg scroll">win</a>
 </div>
