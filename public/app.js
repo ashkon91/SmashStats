@@ -7,8 +7,13 @@ angular
 
     $urlRouterProvider.otherwise('/');
     $stateProvider
-        .state('home', {
+        .state('login',{
             url: '/',
+            templateUrl: 'views/login.html',
+            controller: 'LoginCtrl'
+        })
+        .state('home', {
+            url: '/home',
             templateUrl: 'views/home.html',
             controller: 'HomeCtrl'
         })
@@ -45,4 +50,8 @@ angular
             templateUrl: 'views/addFriendly.html',
             controller: 'AddFriendlyCtrl'
         })
+})
+.controller(function($scope, $rootScope){
+    $rootScope.isLoggedIn = false;
 });
+

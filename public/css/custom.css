@@ -103,7 +103,15 @@ body.navbar-more-show  {
 
 #barofdoom {
     height: 40px;
-    background: #99ccff;
+    background: #4C535F;
     opacity: 0.5;
     filter: alpha(opacity=50);
+}
+h3 {
+	color: white;
+}
+
+.form-control {
+	width: 50%;
+	margin-left: 25%;
 }

@@ -29,7 +29,7 @@
 
 
     <!--div class="navbar-more-overlay"></div-->
-    <nav class="navbar navbar-inverse navbar-fixed-bottom" style="position:absolute">
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" ng-if="isLoggedIn" style="position:absolute">
         <div class="container">
             <div class="navbar-header hidden-xs">
                 <a class="navbar-brand" href="#">smashstats</a>
@@ -39,6 +39,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link" ui-sref="home" ng-class="{'active': activePage === 'home'}">Home</a>
+                    <i class="fa fa-home" aria-hidden="true"></i>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" ui-sref="more" ng-class="{'active': activePage === 'more'}">More</a>
@@ -84,7 +85,7 @@
     <script type="text/javascript" src="controllers/train.js"></script>
     <script type="text/javascript" src="controllers/addFriendly.js"></script>
     <script type="text/javascript" src="controllers/addPrac.js"></script>
-
+    <script type="text/javascript" src="controllers/login.js"></script>
 
 
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
