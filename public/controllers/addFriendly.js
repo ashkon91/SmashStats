@@ -1,7 +1,7 @@
 angular.module('SmashStats')
 .controller('AddFriendlyCtrl', function($rootScope, $scope, $http) {
 	$rootScope.activePage = 'addFriendly';
-	
+
 	//List 1
 	$scope.obj={character_selected : {'name':'Choose a character'}};
     $scope.character_list = [{'name': 'Fox', 'url': 'http://i.imgur.com/e6iqFph.png'},
@@ -32,7 +32,7 @@ angular.module('SmashStats')
     						{'name': 'Kirby', 'url': 'http://i.imgur.com/D2834pg.png'}
     						];
 
-    $scope.obj2={character_selected2 : {'name':'Choose a character'}};
+    $scope.obj2={character_selected : {'name':'Choose a character'}};
     $scope.character_list2 = [{'name': 'Fox', 'url': 'http://i.imgur.com/e6iqFph.png'},
     						{'name': 'Falco', 'url': 'http://i.imgur.com/agJbmfC.png'},
     						{'name': 'Sheik', 'url': 'http://i.imgur.com/LIUAHAS.png'},
@@ -62,6 +62,10 @@ angular.module('SmashStats')
     						];
     $scope.win = function(player1){
 		console.log($scope.obj.character_selected['name']);
+	}
+
+		$scope.lose = function(player2){
+		console.log($scope.obj2.character_selected['name']);
 	}
 
 

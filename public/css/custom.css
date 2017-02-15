@@ -146,6 +146,7 @@ h3 {
 .select_list > .options{
     display:none;
     position:absolute;
+    z-index:100;
     top:100%;
     left:-1px;
     width:100%;
@@ -170,3 +171,47 @@ h3 {
     background-color:#eee;
 }
 
+.select_list2{
+    background-color: #fff;
+    border: 1px solid #b3b3b3;
+    cursor: pointer;
+    height: 21px;
+    line-height: 21px;
+    padding: 3px 5px;
+    position: relative;
+    vertical-align: middle;
+    width: 250px;
+}
+.select_list2:after{
+    content:"▼";
+    position:absolute;
+    right:3px;
+    color:#b3b3b3;
+}
+.select_list2 > .options{
+    display:none;
+    position:absolute;
+    z-index:99;
+    top:100%;
+    left:-1px;
+    width:100%;
+    border:1px solid #666;
+    padding:0;
+    margin:0;
+    background-color: white;
+}
+
+.select_list2.active2 > .options{
+    display:block;
+}
+
+.select_list2 > span, .select_list2 > .options li {
+    background-position: 5px center;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    list-style:none;
+}
+
+.select_list2 > .options li:hover {
+    background-color:#eee;
+}
