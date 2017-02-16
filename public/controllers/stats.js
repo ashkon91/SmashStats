@@ -1,18 +1,28 @@
 angular.module('SmashStats')
-.controller('StatsCtrl', function($rootScope, $scope, $http) {
+.controller('StatsCtrl', function($rootScope, $scope, $http,SmashServices) {
 	$rootScope.activePage = 'stats';
-	$http.get('../data.json')
+
+	SmashServices.getJSON(function(response){
+		console.log(response.data);
+		$scope.wins = response.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].wins;
+		$scope.losses = response.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].losses;
+	}, function(error){
+		console.log("ERROR");
+	});
+
+	/*$http.get('../data.json')
 	.then(function(data){
 			$scope.names = [];
 			for(val in data.data.Name){
 				$scope.names.push(val);
 			}
-			
+			console.log(data.data);
 			console.log(data.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"]);
 			$scope.wins = data.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].wins;
 			$scope.losses = data.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].losses;
 			$scope.someshit = "THUIEJOPKAKSJFBOPSNAM";
+			console.log(data.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].wins);
 
 	})
-
+	*/
 });
