@@ -1,26 +1,40 @@
 
-<div class="row header-info"> Player 1 Char </div>
-<div class="select_list" ng-class='{active:active}' ng-click="active=!active">
-    <span ng-style="{'background-image':'url('+obj.character_selected.url+')'}">{{obj.character_selected.name}}</span>
-    <ul class="options">
-        <li class="select_list_option" ng-repeat="character in character_list" ng-click="obj.character_selected=character" ng-style="{'background-image':'url('+character.url+')'}">{{character.name}}</li>
-        </ul>
-</div>
+    <div class="row header-info">
+      <div class="col-sm-10 col-sm-offset-1 text-center">
+        <h1 class="wow fadeIn">Friendly</h1>
+      </div>
+    </div>
+
+<div class="row header-info"> Your Character </div>
+  <div class="select_list" ng-class='{active:active}' ng-click="active=!active">
+      <span ng-style="{'background-image':'url('+obj.character_selected.url+')'}">{{obj.character_selected.name}}</span>
+      <ul class="options">
+          <li class="select_list_option" ng-repeat="character in character_list" ng-click="obj.character_selected=character" ng-style="{'background-image':'url('+character.url+')'}">{{character.name}}</li>
+          </ul>
+  </div>
 <br/><br/>
 
-<div class="row header-info"> Player 2 Char </div>
-<div class="select_list2" ng-class='{active2:active2}' ng-click="active2=!active2">
-    <span ng-style="{'background-image':'url('+obj2.character_selected.url+')'}">{{obj2.character_selected.name}}</span>
-    <ul class="options">
-        <li class="select_list2_option" ng-repeat="character in character_list2" ng-click="obj2.character_selected=character" ng-style="{'background-image':'url('+character.url+')'}">{{character.name}}</li>
-        </ul>
-</div>
+<div class="row header-info"> Opponent Character </div>
+  <div class="select_list2" ng-class='{active2:active2}' ng-click="active2=!active2">
+      <span ng-style="{'background-image':'url('+obj2.character_selected.url+')'}">{{obj2.character_selected.name}}</span>
+      <ul class="options">
+          <li class="select_list2_option" ng-repeat="character in character_list2" ng-click="obj2.character_selected=character" ng-style="{'background-image':'url('+character.url+')'}">{{character.name}}</li>
+          </ul>
+  </div>
 
 <br/><br/>
+
+<div class="row header-info"> Select Stage </div>
+<div class="select_list3" ng-class='{active3:active3}' ng-click="active3=!active3">
+    <span ng-style="{'background-image':'url('+stageobj.stage_selected.url+')'}">{{stageobj.stage_selected.name}}</span>
+    <ul class="options">
+        <li class="select_list3_option" ng-repeat="stage in stage_list" ng-click="stageobj.stage_selected=stage" ng-style="{'background-image':'url('+stage.url+')'}">{{stage.name}}</li>
+        </ul>
+</div>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-    <a ng-click='win(p1)' class="btn btn-primary btn-lg scroll">win</a>
-    <a ng-click='lose(p2)' class="btn btn-primary btn-lg scroll">lose</a>
+    <a id="friendlybutton" ng-click='win(p1)' class="btn btn-primary btn-lg scroll">win</a>
+    <a id="friendlybutton" ng-click='lose(p2)' class="btn btn-primary btn-lg scroll">lose</a>
   </div>
 </div>

@@ -60,12 +60,22 @@ angular.module('SmashStats')
     						{'name': 'Bowser', 'url': 'http://i.imgur.com/Xc5TYpa.png'},
     						{'name': 'Kirby', 'url': 'http://i.imgur.com/D2834pg.png'}
     						];
+
+		$scope.stageobj={stage_selected : {'name':'Choose a stage'}};
+    $scope.stage_list = [{'name': 'Battlefield', 'url': 'https://www.ssbwiki.com/images/d/de/Battlefieldssbm.jpg'},
+    						{'name': 'Dream Land', 'url': 'https://www.ssbwiki.com/images/2/25/SSB4UDreamLand64.png'},
+    						{'name': 'Final Destination', 'url': 'https://www.ssbwiki.com/images/9/98/Finaldestination.jpg'},
+    						{'name': 'Fountain of Dreams', 'url': 'https://www.ssbwiki.com/images/0/01/Fountainofdreams.jpg'},
+    						{'name': 'Yoshis Story', 'url': 'https://www.ssbwiki.com/images/1/1a/Yoshi%27sStory.PNG'},
+    						{'name': 'Pokemon Stadium', 'url': 'https://www.ssbwiki.com/images/2/2b/Pokemonstadium.jpg'},
+    						];
+
     $scope.win = function(player1){
-		console.log($scope.obj.character_selected['name']);
+		console.log($scope.obj.character_selected['name'] + " beat " + $scope.obj2.character_selected['name'] + " on " + $scope.stageobj.stage_selected['name']);
 	}
 
 		$scope.lose = function(player2){
-		console.log($scope.obj2.character_selected['name']);
+		console.log($scope.obj2.character_selected['name'] + " beat " + $scope.obj.character_selected['name'] + " on " + $scope.stageobj.stage_selected['name']);
 	}
 
 
