@@ -1,0 +1,36 @@
+{
+	"Name" : {
+		"Ashkon" : {
+			"Character" : {
+				"Fox": {
+					"Stage" : {
+						"Battlefield": {
+							"wins": 0,
+							"losses" : 0
+						},
+						"Final Destination" : {
+							"wins": 0,
+							"losses" : 0
+						},
+						"Dreamland" : {
+							"wins" : 0,
+							"losses" : 0
+						},
+						"Yoshi's Story" : {
+							"wins" : 0,
+							"losses" : 0
+						},
+						"Pokemon Staidum" : {
+							"wins" : 0,
+							"losses" : 0
+						}
+					}
+				}
+			}
+		},
+		"Jerry" : {
+
+		}
+	}
+	
+}
