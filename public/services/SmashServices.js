@@ -17,6 +17,21 @@ angular.module('SmashStats')
             };
             this.apiCall(req, success, error);
         },
+        pushJSON: function(dataObj, success, error) {
+            var req = {
+                method: 'POST',
+                url: '/pushJSON',
+                data: dataObj
+            };
+            this.apiCall(req, success, error);
+        },
+        getJSON: function(success, error) {
+            var req = {
+                method: 'GET',
+                url: '/getJSON'
+            };
+            this.apiCall(req, success, error);
+        },
         apiCall: function(req, success, error) {
             req.url = API_URL + req.url;
             $http(req)
