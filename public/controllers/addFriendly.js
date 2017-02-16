@@ -70,13 +70,28 @@ angular.module('SmashStats')
     						{'name': 'Pokemon Stadium', 'url': 'https://www.ssbwiki.com/images/2/2b/Pokemonstadium.jpg'},
     						];
 
-    $scope.win = function(player1){
-		console.log($scope.obj.character_selected['name'] + " beat " + $scope.obj2.character_selected['name'] + " on " + $scope.stageobj.stage_selected['name']);
-	}
+	$scope.matchResult = "hello";
+	$scope.winner = false;
 
-		$scope.lose = function(player2){
-		console.log($scope.obj2.character_selected['name'] + " beat " + $scope.obj.character_selected['name'] + " on " + $scope.stageobj.stage_selected['name']);
-	}
+  $scope.win = function(player1){
+		$scope.winner = true;
+ 	}
 
+	$scope.lose = function(player2){
+			$scope.winner = false;
+	 }
+
+	$scope.result = function(){
+			var x = document.getElementById("snackbar")
+			x.className = "show";
+			setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+			if($scope.winner == true){
+				$scope.matchResult = $scope.obj2.character_selected['name'] + " beat " + $scope.obj.character_selected['name'] + " on " + $scope.stageobj.stage_selected['name'];
+			}
+			else{
+				$scope.matchResult = $scope.obj.character_selected['name'] + " beat " + $scope.obj2.character_selected['name'] + " on " + $scope.stageobj.stage_selected['name'];
+			}
+			console.log($scope.matchResult);
+	}
 
 });
