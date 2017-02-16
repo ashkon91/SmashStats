@@ -5,7 +5,7 @@ html, body {
     background-color: #e9ebee;
 }
 body {
-    padding-top: 75px;
+    padding-top: 15px;
 }
 body.navbar-more-show  {
 	overflow: hidden;
@@ -87,8 +87,8 @@ body.navbar-more-show  {
     color: rgb(64, 64, 64);
 }
 .navbar-more > .navbar-nav > li > a > span.menu-icon {
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 @media (min-width: 768px) {
@@ -107,14 +107,28 @@ body.navbar-more-show  {
 	}
 }
 
+.navbarimage{
+  width: 48px;
+  height: 48px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+}
+
 #barofdoom {
     height: 40px;
     background: #4C535F;
     opacity: 0.5;
     filter: alpha(opacity=50);
 }
+
 h3 {
 	color: white;
+}
+
+.white, .white a {
+  color: #fff;
 }
 
 .form-control {
@@ -126,6 +140,7 @@ h3 {
 	color: #ff0000;
 }
 
+/*for your character*/
 .select_list{
     background-color: #fff;
     border: 1px solid #b3b3b3;
@@ -146,11 +161,15 @@ h3 {
 .select_list > .options{
     display:none;
     position:absolute;
+    z-index:100;
     top:100%;
     left:-1px;
     width:100%;
     border:1px solid #666;
-    padding:0;
+    padding-left:0px;
+    padding-right:0px;
+    padding-top:0px;
+    padding-bottom: 75px;
     margin:0;
     background-color: white;
 }
@@ -170,3 +189,110 @@ h3 {
     background-color:#eee;
 }
 
+/*for opponent character*/
+.select_list2{
+    background-color: #fff;
+    border: 1px solid #b3b3b3;
+    cursor: pointer;
+    height: 21px;
+    line-height: 21px;
+    padding: 3px 5px;
+    position: relative;
+    vertical-align: middle;
+    width: 250px;
+}
+.select_list2:after{
+    content:"▼";
+    position:absolute;
+    right:3px;
+    color:#b3b3b3;
+}
+.select_list2 > .options{
+    display:none;
+    position:absolute;
+    z-index:99;
+    top:100%;
+    left:-1px;
+    width:100%;
+    border:1px solid #666;
+    padding-left:0px;
+    padding-right:0px;
+    padding-top:0px;
+    padding-bottom: 75px;
+    margin:0;
+    background-color: white;
+}
+
+.select_list2.active2 > .options{
+    display:block;
+}
+
+.select_list2 > span, .select_list2 > .options li {
+    background-position: 5px center;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    list-style:none;
+}
+
+.select_list2 > .options li:hover {
+    background-color:#eee;
+}
+
+/* for stages */
+.select_list3{
+    background-color: #fff;
+    border: 1px solid #b3b3b3;
+    cursor: pointer;
+    height: 21px;
+    line-height: 21px;
+    padding: 3px 5px;
+    position: relative;
+    vertical-align: middle;
+    width: 250px;
+}
+.select_list3:after{
+    content:"▼";
+    position:absolute;
+    right:3px;
+    color:#b3b3b3;
+}
+.select_list3 > .options{
+    color: white;
+    display:none;
+    position:absolute;
+    z-index:98;
+    top:100%;
+    left:-1px;
+    width:100%;
+    border:1px solid #666;
+    padding-left:0px;
+    padding-right:0px;
+    padding-top:0px;
+    padding-bottom: 75px;
+    margin:0;
+    background-color: white;
+}
+
+.select_list3.active3 > .options{
+    display:block;
+}
+
+.select_list3 > span, .select_list3 > .options li {
+    color: white;
+     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    list-style:none;
+}
+
+.select_list3 > .options li:hover {
+    background-color:#eee;
+}
+
+#friendlybutton{
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}

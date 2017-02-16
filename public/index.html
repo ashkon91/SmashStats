@@ -40,17 +40,25 @@
             <ul class="nav navbar-nav navbar-right mobile-bar">
 
                 <li class="nav-item">
-                    <a class="nav-link" ui-sref="home" ng-class="{'active': activePage === 'home'}">Home</a>
+                    <a class="nav-link" ui-sref="home" ng-class="{'active': activePage === 'home'}">
+                      <img class="navbarimage" src="../images/home.png"> </img>
+                    </a>
                     <i class="fa fa-home" aria-hidden="true"></i>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" ui-sref="more" ng-class="{'active': activePage === 'more'}">More</a>
+                    <a class="nav-link" ui-sref="stats" ng-class="{'active': activePage === 'stats'}">
+                        <img class="navbarimage" src="../images/stats.png"> </img>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" ui-sref="stats" ng-class="{'active': activePage === 'stats'}">Stats</a>
+                    <a class="nav-link" ui-sref="settings" ng-class="{'active': activePage === 'settings'}">
+                        <img class="navbarimage" src="../images/settings.png"> </img>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" ui-sref="settings" ng-class="{'active': activePage === 'settings'}">Settings</a>
+                    <a class="nav-link" ui-sref="more" ng-class="{'active': activePage === 'more'}">
+                        <img class="navbarimage" src="../images/more.png"> </img>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -91,7 +99,6 @@
     <script type="text/javascript" src="controllers/tech.js"></script>
     <script type="text/javascript" src="services/SmashServices.js"></script>
     <script type="text/javascript" src="controllers/newPlayer.js"></script>
-
 
 
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
