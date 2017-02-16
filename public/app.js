@@ -63,5 +63,5 @@ angular
         })
 })
 .controller(function($scope, $rootScope){
-    $rootScope.isLoggedIn = false;
+    $rootScope.isLoggedIn = true;
 });

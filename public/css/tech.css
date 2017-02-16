@@ -1,0 +1,17 @@
+.headerBlock {
+    text-align: center;
+    display:block;
+    background-color: #191970;
+    color: white;
+    padding: 20px;
+    padding-top: 40px;
+}
+
+.techListButton {
+    margin-top: .5%;
+}
+
+.techListText {
+    padding-left:1%;
+    width:50%;
+}
