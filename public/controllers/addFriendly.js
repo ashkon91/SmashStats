@@ -91,18 +91,20 @@ angular.module('SmashStats')
 			}
 			else{
 				$scope.matchResult = $scope.obj.character_selected['name'] + " beat " + $scope.obj2.character_selected['name'] + " on " + $scope.stageobj.stage_selected['name'];
-
+                $scope.reportWin();
 			}
 			console.log($scope.matchResult);
 	}
 
   $scope.reportWin = function(player1){
+
       var result = {
           Name: "Ashkon",
           Character: $scope.obj.character_selected['name'],
-          Stage: $scope.stageobj.stage_selected['name']
+          Stage: $scope.stageobj.stage_selected['name'],
+          Result: $scope.winner
       }
-
+      console.log(result);
       SmashServices.pushJSON(result, function(success){
           console.log("SUCCESS");
 
