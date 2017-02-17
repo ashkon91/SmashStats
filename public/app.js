@@ -1,7 +1,9 @@
 angular
 .module('SmashStats', [
     'ui.router',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ui.select',
+    'ngSanitize'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 

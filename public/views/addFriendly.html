@@ -1,40 +1,74 @@
-<div class="col-sm-10 col-sm-offset-1 text-center">
-  <h1 class="wow fadeIn">Friendly</h1>
-</div>
 
-<div class="row header-info" style="text-align: center;"> Your Character </div>
+<div class="headerBlock row">
+      <h1 class="techHeader">Add Friendly</h1>
+</div>
+<!--<div class="row header-info" style="text-align: center;"> Your Character </div>
 <div class="select_list" ng-class='{active:active}' ng-click="active=!active">
     <span ng-style="{'background-image':'url('+obj.character_selected.url+')'}">{{obj.character_selected.name}}</span>
     <ul class="options" style="text-align:center;">
         <li class="select_list_option" ng-repeat="character in character_list" ng-click="obj.character_selected=character" ng-style="{'background-image':'url('+character.url+')'}">{{character.name}}</li>
     </ul>
-</div>
+</div>-->
+<div class="container" style="padding-top:8%;padding-bottom:12%">
+<div class="form-group">
+  <label class="col-sm-3 control-label">Your Character</label>
+  <div class="col-sm-6">
 
-<div class="row header-info" style="text-align: center;"> Opponent Character </div>
-<div class="select_list2" ng-class='{active2:active2}' ng-click="active2=!active2">
-    <span ng-style="{'background-image':'url('+obj2.character_selected.url+')'}">{{obj2.character_selected.name}}</span>
-    <ul class="options" style="text-align:center;">
-        <li class="select_list2_option" ng-repeat="character in character_list2" ng-click="obj2.character_selected=character" ng-style="{'background-image':'url('+character.url+')'}">{{character.name}}</li>
-    </ul>
-</div>
+    <ui-select ng-model="results.user_char_selected" theme="bootstrap">
+      <ui-select-match placeholder="What character did you use?">{{$select.selected.name}}&nbsp;<img class="charIcon" width="21" height="21" src="{{$select.selected.url}}"></img></ui-select-match>
+      <ui-select-choices group-by="'tier'" repeat="item in character_list | filter: $select.search">
+        <span ng-bind-html="item.name | highlight: $select.search"></span>
+        <img src="{{item.url}}" class="charIcon" width="21" height="21" ng-bind-html="item.url | highlight: $select.search"></img>
+      </ui-select-choices>
+    </ui-select>
 
-<div class="row header-info" style="text-align: center;"> Select Stage </div>
-<div class="select_list3" ng-class='{active3:active3}' ng-click="active3=!active3">
-    <span ng-style="{'background-image':'url('+stageobj.stage_selected.url+')'}">{{stageobj.stage_selected.name}}</span>
-    <ul class="options" style="text-align:center;">
-        <li class="select_list3_option" ng-repeat="stage in stage_list" ng-click="stageobj.stage_selected=stage" ng-style="{'background-image':'url('+stage.url+')'}">{{stage.name}}</li>
-    </ul>
-</div>
-
-<div id="snackbar">{{matchResult}}</div>
-
-<div class="row">
-  <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-    <a id="friendlybutton" ng-click='win(p1)' class="btn btn-primary btn-lg scroll">win</a>
-    <a id="friendlybutton" ng-click='lose(p2)' class="btn btn-primary btn-lg scroll">lose</a>
   </div>
 </div>
 
+
+<div class="form-group">
+  <label class="col-sm-3 control-label">Opponent's Character</label>
+  <div class="col-sm-6">
+
+    <ui-select ng-model="results.opp_char_selected" theme="bootstrap">
+      <ui-select-match placeholder="What character did your opponent use?">{{$select.selected.name}}&nbsp;<img class="charIcon" width="21" height="21" src="{{$select.selected.url}}"></img></ui-select-match>
+      <ui-select-choices group-by="'tier'" repeat="item in character_list | filter: $select.search">
+        <span ng-bind-html="item.name | highlight: $select.search"></span>
+        <img src="{{item.url}}" class="charIcon" width="21" height="21" ng-bind-html="item.url | highlight: $select.search"></img>
+      </ui-select-choices>
+    </ui-select>
+
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-3 control-label">Map</label>
+  <div class="col-sm-6">
+
+    <ui-select ng-model="results.stage" theme="bootstrap">
+      <ui-select-match placeholder="What stage did you play on?">{{$select.selected.name}}</ui-select-match>
+      <ui-select-choices repeat="item in stage_list | filter: $select.search">
+        <span  ng-bind-html="item.name | highlight: $select.search"></span>
+
+      </ui-select-choices>
+    </ui-select>
+
+  </div>
+</div>
+</div>
+
+
+<div id="snackbar">{{matchResult}}</div>
+
+<div class="row" style="text-align: center; padding-bottom:9%">
+
+    <div class="btn-group">
+        <label class="btn btn-info" ng-model="results.result" uib-btn-radio="'win'" uncheckable>Win</label>
+        <label class="btn btn-danger" ng-model="results.result" uib-btn-radio="'lose'" uncheckable>Lose</label>
+    </div>
+
+</div>
+
 <div class="row" style="text-align: center;">
-  <a id="friendlybutton" ng-click='result()' class="btn" style="width: 200px; height 50px;">Confirm</a>
+  <a id="friendlybutton" ng-click='reportWin();openToast' class="btn btn-primary" style="width: 200px; height 50px;">Confirm</a>
 </div>

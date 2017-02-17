@@ -1,27 +1,29 @@
-    <div class="row header-info">
-      <div class="col-sm-10 col-sm-offset-1 text-center">
-        <div class="headerBlock">
+
+<div class="row header-info">
+    <div class="headerBlock">
         <h1 class="wow fadeIn">Melee Stats</h1>
         <p class="lead wow fadeIn" data-wow-delay="0.5s">A place to get BETTER at smash!!!!!</p>
     </div>
+    <div class="col-sm-10 col-sm-offset-1 text-center">
+
         <div class="row">
-          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-            <div class="row">
-              <h3 id="barofdoom"> Practice </h3>
-              <div class=" wow fadeInUp" style=" margin: 0 auto; " data-wow-delay="1s">
-                <a class="btn btn-primary btn-lg scroll" ui-sref="addPrac"
-                ng-class="{'active': activePage == 'addPrac'}">Add Practice</a>
-              </div>
-            </div><!--End Button Row-->
-            <div class="row">
-              <h3 id="barofdoom"> Friendlies </h3>
-              <div class=" wow fadeInUp" data-wow-delay="1.4s">
-                <a ui-sref="addFriendly" ng-class="{'active': activePage === 'addFriendly'}" class="btn btn-primary btn-lg scroll">Add Friendlies</a>
-              </div>
-            </div><!--End Button Row-->
-          </div>
+            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <div class="row">
+                    <h3 id="barofdoom"> Practice Techs </h3>
+                    <div class=" wow fadeInUp" style=" margin: 0 auto; " data-wow-delay="1s">
+                        <a class="btn btn-primary btn-lg scroll" ui-sref="train"
+                        ng-class="{'active': activePage == 'train'}">Techs</a>
+                    </div>
+                </div><!--End Button Row-->
+                <div class="row">
+                    <h3 id="barofdoom"> Friendlies </h3>
+                    <div class=" wow fadeInUp" data-wow-delay="1.4s">
+                        <a ui-sref="addFriendly" ng-class="{'active': activePage === 'addFriendly'}" class="btn btn-primary btn-lg scroll">Add Friendlies</a>
+                    </div>
+                </div><!--End Button Row-->
+            </div>
         </div>
 
-      </div>
     </div>
-    <script type="text/javascript" src="controllers/train.js"></script>
+</div>
+<script type="text/javascript" src="controllers/train.js"></script>

@@ -4,12 +4,11 @@ module.exports = function(req,res){
     console.log(body);
     //console.log(data.Name[body.Name].Character[body.Character].Stage[body.Stage].wins++);
     //console.log(data.Name[body.Name].Character[body.Character].Stage[body.Stage].wins);
-	if(data.Name[body.Name].Character[body.Character].Stage[body.Stage]){
+	if(data.Name[body.Name]['Character'][body.Character]['Stage'][body.Stage]){
 		if(body.Result == true){
 			data.Name[body.Name].Character[body.Character].Stage[body.Stage].wins += 1;
 		}
 		else{
-			console.log("LOSS");
 			data.Name[body.Name].Character[body.Character].Stage[body.Stage].losses += 1;
 		}
 
