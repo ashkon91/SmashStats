@@ -2,10 +2,12 @@ angular.module('SmashStats')
 .controller('StatsCtrl', function($rootScope, $scope, $http,SmashServices) {
 	$rootScope.activePage = 'stats';
 
+	$scope.user = 'Admin';
 	SmashServices.getJSON(function(response){
 		console.log(response.data);
-		$scope.wins = response.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].wins;
-		$scope.losses = response.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].losses;
+
+		jsonResults = response.data[$scope.user];
+		$scope.stageStats = jsonResults.Stage;
 	}, function(error){
 		console.log("ERROR");
 	});

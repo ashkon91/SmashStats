@@ -1,32 +1,43 @@
 {
-	"Name" : {
-		"Ashkon" : {
-			"Character" : {
-				"Fox": {
-					"Stage" : {
-						"Battlefield": {
-							"wins": 0,
-							"losses" : 0
-						},
-						"Final Destination" : {
-							"wins": 0,
-							"losses" : 0
-						},
-						"Dreamland" : {
-							"wins" : 0,
-							"losses" : 0
-						},
-						"Yoshi's Story" : {
-							"wins" : 0,
-							"losses" : 0
-						},
-						"Pokemon Staidum" : {
-							"wins" : 0,
-							"losses" : 0
-						}
+	"Admin": {
+		"Stage" : {
+			"Battlefield": {
+				"win": 0,
+				"loss" : 1
+			},
+			"Final Destination" : {
+				"win": 0,
+				"loss" : 0
+			},
+			"Dreamland" : {
+				"win" : 0,
+				"loss" : 0
+			},
+			"Yoshi's Story" : {
+				"win" : 0,
+				"loss" : 0
+			},
+			"Pokemon Stadium" : {
+				"win" : 0,
+				"loss" : 0
+			},
+			"Fountain of Dreams" : {
+				"win" : 0,
+				"loss" : 0
+			}
+		},
+		"Opponents": {
+			"Bob": {
+				"Matches" : [
+					{
+						"uChar": "Fox",
+						"oChar": "Marth",
+						"stage": "Battlefield",
+						"result": "Loss"
 					}
-				}
+				]
 			}
 		}
+
 	}
 }

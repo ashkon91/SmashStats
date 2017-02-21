@@ -55,6 +55,15 @@
 
   </div>
 </div>
+
+<div class="form-group">
+  <label class="col-sm-3 control-label">Opponent Name</label>
+  <div class="col-sm-6">
+
+    <input type="text" ng-model="results.opp_name" class="form-control">
+
+  </div>
+</div>
 </div>
 
 
@@ -64,7 +73,7 @@
 
     <div class="btn-group">
         <label class="btn btn-info" ng-model="results.result" uib-btn-radio="'win'" uncheckable>Win</label>
-        <label class="btn btn-danger" ng-model="results.result" uib-btn-radio="'lose'" uncheckable>Lose</label>
+        <label class="btn btn-danger" ng-model="results.result" uib-btn-radio="'loss'" uncheckable>Lose</label>
     </div>
 
 </div>

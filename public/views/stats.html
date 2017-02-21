@@ -6,8 +6,9 @@
     </div>
 
     <br />
-    <div style="text-align:center">
-        <p> Wins: {{wins}} Losses: {{losses}}</p>
+    <div style="text-align:center" ng-repeat="(name, info) in stageStats">
+        <h3> {{name}} </h3>
+        <p> Wins: {{info.win}} Losses: {{info.loss}}</p>
     </div>
     <!--<select>
     <option ng-repeat="x in names">{{x}}</option>

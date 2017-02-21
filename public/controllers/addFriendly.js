@@ -36,10 +36,10 @@ angular.module('SmashStats')
 
 
     $scope.stage_list = [{'name': 'Battlefield', 'url': 'https://www.ssbwiki.com/images/d/de/Battlefieldssbm.jpg'},
-    {'name': 'Dream Land', 'url': 'https://www.ssbwiki.com/images/2/25/SSB4UDreamLand64.png'},
+    {'name': 'Dreamland', 'url': 'https://www.ssbwiki.com/images/2/25/SSB4UDreamLand64.png'},
     {'name': 'Final Destination', 'url': 'https://www.ssbwiki.com/images/9/98/Finaldestination.jpg'},
     {'name': 'Fountain of Dreams', 'url': 'https://www.ssbwiki.com/images/0/01/Fountainofdreams.jpg'},
-    {'name': 'Yoshis Story', 'url': 'https://www.ssbwiki.com/images/1/1a/Yoshi%27sStory.PNG'},
+    {'name': "Yoshi's Story", 'url': 'https://www.ssbwiki.com/images/1/1a/Yoshi%27sStory.PNG'},
     {'name': 'Pokemon Stadium', 'url': 'https://www.ssbwiki.com/images/2/2b/Pokemonstadium.jpg'},
     ];
 
@@ -52,11 +52,9 @@ angular.module('SmashStats')
 		setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 		if($scope.results.result == 'win'){
 			$scope.matchResult = $scope.results.user_char_selected['name'] + " beat " + $scope.results.opp_char_selected['name'] + " on " + $scope.results.stage['name'];
-			$scope.reportWin();
 		}
 		else{
 			$scope.matchResult = $scope.results.opp_char_selected['name'] + " beat " + $scope.results.user_char_selected['name'] + " on " + $scope.results.stage['name'];
-            $scope.reportWin();
 		}
 		console.log($scope.matchResult);
 	}
@@ -64,14 +62,14 @@ angular.module('SmashStats')
   $scope.reportWin = function(player1){
 
       var result = {
-          Name: "Ashkon",
-          Character: $scope.results.user_char_selected['name'],
-          Stage: $scope.results.stage['name'],
-          Result: $scope.results.result == 'win'
+		user: "Admin",
+		opp: $scope.results.opp_name,
+		uChar: $scope.results.user_char_selected['name'],
+		oChar: $scope.results.opp_char_selected['name'],
+		stage: $scope.results.stage['name'],
+		result: $scope.results.result
       }
-	  console.log($scope.results.result)
 
-      console.log(result);
       SmashServices.pushJSON(result, function(success){
           console.log("SUCCESS");
       }, function(error){
