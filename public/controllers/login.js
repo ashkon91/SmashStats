@@ -1,9 +1,15 @@
 angular.module('SmashStats')
-.controller('LoginCtrl', function($rootScope, $scope, $state) {
+.controller('LoginCtrl', function($rootScope, $scope, $state, $stateParams) {
 	$rootScope.activePage = 'login';
 	$scope.isNewUser = false;
 	$scope.failedLogin = false;
 	$scope.errorText = "";
+
+	if($stateParams.from == "registerPage"){
+		$scope.errorText = "Welcome " + $stateParams.who + "! Please enter your username and password to login."
+	}
+
+	console.log($stateParams.from);
 	$scope.login = function(username,password) {
 		console.log(password);
 		if(username == "admin", password == "password"){
@@ -21,7 +27,7 @@ angular.module('SmashStats')
 			$scope.failedLogin = true;
 			$scope.errorText = "Username and password combination is not valid!";
 		}
-		
+
 	}
 	$scope.newUser = function(username,password){
 		$scope.isNewUser = true;

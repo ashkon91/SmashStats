@@ -12,12 +12,21 @@ angular
         .state('login',{
             url: '/',
             templateUrl: 'views/login.html',
-            controller: 'LoginCtrl'
+            controller: 'LoginCtrl',
+            params:{
+              from: null,
+              who: null
+            }
         })
         .state('newPlayer', {
             url:'/newPlayer',
             templateUrl: 'views/newPlayer.html',
             controller: 'NewPlayerCtrl'
+        })
+        .state('register', {
+            url:'/register',
+            templateUrl: 'views/register.html',
+            controller: 'RegisterCtrl'
         })
         .state('home', {
             url: '/home',
