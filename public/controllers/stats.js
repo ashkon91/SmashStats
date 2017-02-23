@@ -83,8 +83,7 @@ angular.module('SmashStats')
 			$scope.notFilled = false;
 			getResults($scope.results.opponent['name'], $scope.results.user_char_selected['name'], $scope.results.opp_char_selected['name']);
 		}
-		console.log(gameRest);
-		
+
 		console.log($scope.radarData);
 
 	}
@@ -130,7 +129,7 @@ angular.module('SmashStats')
 					}
 				}
 			}
-
+			console.log(collectedData);
 			formatResults(collectedData);
 
 

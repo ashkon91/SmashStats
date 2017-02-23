@@ -2,28 +2,28 @@
 	"Admin": {
 		"Stage" : {
 			"Battlefield": {
-				"win": 0,
-				"loss" : 1
+				"win": 9,
+				"loss" : 7
 			},
 			"Final Destination" : {
-				"win": 0,
-				"loss" : 0
+				"win": 3,
+				"loss" : 6
 			},
 			"Dreamland" : {
-				"win" : 0,
-				"loss" : 0
+				"win" : 6,
+				"loss" : 7
 			},
 			"Yoshi's Story" : {
-				"win" : 0,
-				"loss" : 0
+				"win" : 4,
+				"loss" : 6
 			},
 			"Pokemon Stadium" : {
-				"win" : 0,
-				"loss" : 0
+				"win" : 3,
+				"loss" : 5
 			},
 			"Fountain of Dreams" : {
-				"win" : 0,
-				"loss" : 0
+				"win" : 5,
+				"loss" : 4
 			}
 		},
 		"Opponents": {
@@ -31,20 +31,384 @@
 				"Matches" : [
 					{
 						"uChar": "Fox",
-						"oChar": "Marth",
+						"oChar": "Fox",
 						"stage": "Battlefield",
 						"result": "loss"
 					},
 					{
-						"uChar": "Marth",
+						"uChar": "Fox",
 						"oChar": "Fox",
+						"stage": "Pokemon Stadium",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
 						"stage": "Battlefield",
 						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Pokemon Stadium",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Yoshi's Story",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Dreamland",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Battlefield",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Yoshi's Story",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Pokemon Stadium",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Yoshi's Story",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Dreamland",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Dreamland",
+						"result": "loss"
 					},{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Dreamland",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Final Destination",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Dreamland",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Battlefield",
+						"result": "loss"
+					},{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Yoshi's Story",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Dreamland",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Yoshi's Story",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Dreamland",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Final Destination",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Yoshi's Story",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Yoshi's Story",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Dreamland",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Yoshi's Story",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Battlefield",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Final Destination",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Fountain of Dreams",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Yoshi's Story",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Yoshi's Story",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Fountain of Dreams",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Final Destination",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Final Destination",
+						"result": "win"
+					},
+					{
 						"uChar": "Fox",
 						"oChar": "Fox",
 						"stage": "Battlefield",
 						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Pokemon Stadium",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Pokemon Stadium",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Dreamland",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Fountain of Dreams",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Dreamland",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Battlefield",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Battlefield",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Final Destination",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Dreamland",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Battlefield",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Fountain of Dreams",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Battlefield",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Battlefield",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Fountain of Dreams",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Pokemon Stadium",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Pokemon Stadium",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Battlefield",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Dreamland",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Fountain of Dreams",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Battlefield",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Dreamland",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Final Destination",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Battlefield",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Pokemon Stadium",
+						"result": "loss"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Battlefield",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Final Destination",
+						"result": "loss"
+					},{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Fountain of Dreams",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Fountain of Dreams",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Fountain of Dreams",
+						"result": "win"
+					},
+					{
+						"uChar": "Fox",
+						"oChar": "Falco",
+						"stage": "Final Destination",
+						"result": "loss"
 					}
 				]
 			}
