@@ -3,8 +3,9 @@ angular
     'ui.router',
     'ui.bootstrap',
     'ui.select',
-    'ngSanitize'
-])
+    'ngSanitize',
+    'chart.js'
+    ])
 .config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');

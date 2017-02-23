@@ -33,7 +33,18 @@
 						"uChar": "Fox",
 						"oChar": "Marth",
 						"stage": "Battlefield",
-						"result": "Loss"
+						"result": "loss"
+					},
+					{
+						"uChar": "Marth",
+						"oChar": "Fox",
+						"stage": "Battlefield",
+						"result": "win"
+					},{
+						"uChar": "Fox",
+						"oChar": "Fox",
+						"stage": "Battlefield",
+						"result": "win"
 					}
 				]
 			}

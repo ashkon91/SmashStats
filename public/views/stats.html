@@ -6,12 +6,72 @@
     </div>
 
     <br />
-    <div style="text-align:center" ng-repeat="(name, info) in stageStats">
-        <h3> {{name}} </h3>
-        <p> Wins: {{info.win}} Losses: {{info.loss}}</p>
-    </div>
+
+<div class="container" style="padding-top:2%;padding-bottom:12%">
+
+<label ng-if="notFilled" class="col-sm-3 control-label" style="padding-left: 22%">Please select all three options!</label>
+
+<div class="form-group">
+  <label class="col-sm-3 control-label">Opponent</label>
+  <div class="col-sm-6">
+
+    <ui-select ng-model="results.opponent" theme="bootstrap" ng-change="change()">
+      <ui-select-match placeholder="Who do you want to know?">{{$select.selected.name}}</ui-select-match>
+      <ui-select-choices repeat="item in opponent_list | filter: $select.search">
+        <span  ng-bind-html="item.name | highlight: $select.search"></span>
+
+      </ui-select-choices>
+    </ui-select>
+
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-sm-3 control-label">Your Character</label>
+  <div class="col-sm-6">
+
+    <ui-select ng-model="results.user_char_selected" theme="bootstrap" ng-change="change()">
+      <ui-select-match placeholder="What character did you use?">{{$select.selected.name}}&nbsp;<img class="charIcon" width="21" height="21" src="{{$select.selected.url}}"></img></ui-select-match>
+      <ui-select-choices group-by="'tier'" repeat="item in character_list | filter: $select.search">
+        <span ng-bind-html="item.name | highlight: $select.search"></span>
+        <img src="{{item.url}}" class="charIcon" width="21" height="21" ng-bind-html="item.url | highlight: $select.search"></img>
+      </ui-select-choices>
+    </ui-select>
+
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-sm-3 control-label">Opponent's Character</label>
+  <div class="col-sm-6">
+
+    <ui-select ng-model="results.opp_char_selected" theme="bootstrap" ng-change="change()">
+      <ui-select-match placeholder="What character did your opponent use?">{{$select.selected.name}}&nbsp;<img class="charIcon" width="21" height="21" src="{{$select.selected.url}}"></img></ui-select-match>
+      <ui-select-choices group-by="'tier'" repeat="item in character_list | filter: $select.search">
+        <span ng-bind-html="item.name | highlight: $select.search"></span>
+        <img src="{{item.url}}" class="charIcon" width="21" height="21" ng-bind-html="item.url | highlight: $select.search"></img>
+      </ui-select-choices>
+    </ui-select>
+
+  </div>
+</div>
+
     <!--<select>
     <option ng-repeat="x in names">{{x}}</option>
 </select>-->
+<canvas id="radar"
+        class="chart chart-radar"
+        chart-data="radarData"
+        chart-labels="radarLabels"
+        ng-if="!notFilled"
+        ></canvas>
+
+<div style="text-align:center" ng-repeat="(name, info) in stageStats" ng-if="!notFilled">
+    <h3> {{name}} </h3>
+    <p> Wins: {{info.win}} Losses: {{info.loss}}</p>
+</div>
+
 </div>
 </div>
