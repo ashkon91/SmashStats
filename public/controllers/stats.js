@@ -113,7 +113,7 @@ angular.module('SmashStats')
 				},
 				"Fountain of Dreams" : {
 					"win": 0,
-					"loss": 0
+					"loss": 0	
 				}
 			}
 			for(op in response.data[$scope.user].Opponents){
@@ -147,7 +147,7 @@ angular.module('SmashStats')
 		}
 		console.log(gameRest);
 		$scope.radarData =[
-		[gameRest['Battlefield'], gameRest['Dreamland'], gameRest['Dreamland'], gameRest['Final Destination'], gameRest['Fountain of Dreams'], gameRest["Yoshi's Story"],  gameRest['Pokemon Stadium']]
+		[gameRest['Battlefield'], gameRest['Dreamland'], gameRest['Final Destination'], gameRest['Fountain of Dreams'], gameRest["Yoshi's Story"],  gameRest['Pokemon Stadium']]
 		];
 	}
 
