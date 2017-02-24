@@ -1,5 +1,5 @@
 angular.module('SmashStats')
-.controller('TechCtrl', function($rootScope, $scope, $stateParams) {
+.controller('TechCtrl', function($rootScope, $scope, $stateParams, $state) {
 	$rootScope.activePage = 'tech';
     console.log($stateParams);
 	$scope.values = $stateParams;
@@ -18,6 +18,10 @@ angular.module('SmashStats')
 
 	$scope.getSourceMP4Url = function(){
 		return "https://zippy.gfycat.com/" + $scope.tech.gifs[0].url + ".mp4";
+	}
+
+	$scope.openPractice = function(){
+		$state.go('practice', {tech: $scope.tech});
 	}
 
 

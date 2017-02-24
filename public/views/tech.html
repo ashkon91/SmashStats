@@ -1,9 +1,11 @@
 <div class="row header-info">
 <div class="headerBlock">
-		<small class="pull-right"><a ui-sref="train" ng-class="{'active': activePage === 'train'}">back</a></small>
+		<button class="btn btn-primary pull-left" ng-click="openPractice()">Practice</button>
+		<button class="btn btn-danger pull-right" ui-sref="train" ng-class="{'active': activePage === 'train'}">back</button>
 		<h1 class="techHeader">{{tech.tech}}</h1>
 		<p class="scene_element scene_element--fadeinup">{{tech.description}} </p>
 		<p class="scene_element scene_element--fadeinup">Inputs: {{tech.inputs}}</p>
 </div>
 
 <a class="embedly-card" href="https://gfycat.com/{{tech.gifs[0].url}}"></a>
+</div>

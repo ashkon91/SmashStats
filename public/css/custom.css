@@ -154,6 +154,30 @@ body.navbar-more-show  {
     animation: fadein 0.75s, fadeout 0.75s 2.5s;
 }
 
+/*toast on practice timer*/
+#snackbar2 {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    margin-right: 125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 150px;
+    font-size: 17px;
+}
+
+#snackbar2.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.75s, fadeout 0.75s 2.5s;
+    animation: fadein 0.75s, fadeout 0.75s 2.5s;
+}
+
 @-webkit-keyframes fadein {
     from {bottom: 0; opacity: 0;}
     to {bottom: 150px; opacity: 1;}

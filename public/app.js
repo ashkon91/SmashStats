@@ -4,7 +4,9 @@ angular
     'ui.bootstrap',
     'ui.select',
     'ngSanitize',
-    'chart.js'
+    'chart.js',
+    'angular-progress-arc',
+    'timer'
     ])
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -72,6 +74,14 @@ angular
             url: '/addFriendly',
             templateUrl: 'views/addFriendly.html',
             controller: 'AddFriendlyCtrl'
+        })
+        .state('practice', {
+            url: '/practice',
+            templateUrl: 'views/practice.html',
+            controller: 'PracticeCtrl',
+            params: {
+                tech: null
+            }
         })
 })
 .controller(function($scope, $rootScope){

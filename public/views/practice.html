@@ -1,0 +1,30 @@
+<div class="row header-info">
+
+
+    <div class="headerBlock">
+        <button class="btn btn-danger pull-right" ui-sref="train" ng-class="{'active': activePage === 'train'}">back</button>
+        <h1 class="techHeader">{{tech.tech}}</h1>
+        <p class="scene_element scene_element--fadeinup">{{tech.description}} </p>
+        <p class="scene_element scene_element--fadeinup">Inputs: {{tech.inputs}}</p>
+    </div>
+
+    <div class='progressCircle'>
+        <progress-arc
+            size="200"
+            stroke="#191970"
+            stroke-width="20"
+            complete="percent"
+            counter-clockwise="false"
+            background="#d3d3d3">
+        </progress-arc>
+    </div>
+
+<div id="startSection" style="text-align:center">
+
+    <h1>{{seconds}} seconds</h1>
+
+    <button class="btn btn-success" style="margin-bottom:25%" ng-click="startTimer()">Start</button>
+
+</div>
+<div id="snackbar2">{{result}}</div>
+</div>
