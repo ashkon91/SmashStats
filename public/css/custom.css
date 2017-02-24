@@ -150,6 +150,7 @@ body.navbar-more-show  {
 
 #snackbar.show {
     visibility: visible;
+    z-index: 200;
     -webkit-animation: fadein 0.75s, fadeout 0.75s 2.5s;
     animation: fadein 0.75s, fadeout 0.75s 2.5s;
 }
@@ -173,9 +174,10 @@ body.navbar-more-show  {
 }
 
 #snackbar2.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.75s, fadeout 0.75s 2.5s;
-    animation: fadein 0.75s, fadeout 0.75s 2.5s;
+  visibility: visible;
+  z-index: 200;
+  -webkit-animation: fadein 0.75s, fadeout 0.75s 2.5s;
+  animation: fadein 0.75s, fadeout 0.75s 2.5s;
 }
 
 @-webkit-keyframes fadein {
