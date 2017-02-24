@@ -7,17 +7,22 @@ angular.module('SmashStats')
     $scope.result = "";
     $scope.seconds = 60;
     $scope.percent = 0.0;
-
+    $scope.stopTime;
     $scope.startTimer = function(){
         $scope.seconds = 60;
-        stopTime = $interval($scope.decSeconds, 1000);
+        if($scope.stopTime !== undefined){
+            $interval.cancel($scope.stopTime);
+            $scope.percent = 0.0;
+        }
+
+        $scope.stopTime = $interval($scope.decSeconds, 1000);
     }
 
     $scope.decSeconds = function(){
         $scope.seconds--;
         $scope.percent = (60-$scope.seconds)/60;
         if($scope.seconds == 0){
-            $interval.cancel(stopTime);
+            $interval.cancel($scope.stopTime);
             $scope.openToast();
         }
     }
