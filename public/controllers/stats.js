@@ -62,6 +62,8 @@ angular.module('SmashStats')
 		console.log("ERROR");
 	});
 
+	$scope.warning = "Select all three options to view your stats!";
+
 	$scope.change = function(){
 		if(!$scope.results.opponent){
 			$scope.warning = "Please select an opponent.";
