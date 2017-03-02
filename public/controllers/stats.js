@@ -5,6 +5,8 @@ angular.module('SmashStats')
 	$scope.notFilled = true;
 	$scope.user = 'Admin';
 	$scope.results = {};
+	$scope.warning = "Select all three options to view your stats!";
+
 	$scope.character_list = [
 	{'name': 'All Characters', 'url' :'https://upload.wikimedia.org/wikipedia/commons/4/49/Smash_Ball.png', 'tier': ''},
 	{'name': 'Fox', 'url': 'https://i.imgur.com/e6iqFph.png', 'tier': 'SS'},
@@ -36,7 +38,6 @@ angular.module('SmashStats')
 	];
 
 	$scope.radarLabels = ["Battlefield", "Dreamland", "Final Destination", "Fountain of Dreams", "Yoshi's Story", "Pokemon Stadium"];
-	
 
 	$scope.stage_list = [
 	{'name': 'All Stages', 'url' :'https://upload.wikimedia.org/wikipedia/commons/4/49/Smash_Ball.png'},
@@ -54,7 +55,7 @@ angular.module('SmashStats')
 		$scope.stageStats = jsonResults.Stage;
 
 		$scope.opponent_list = getOpponents(response, $scope.user);
-		
+
 		//console.log($scope.opponent_list);
 		//console.log(response.data[$scope.user].Opponents);
 	}, function(error){
@@ -76,10 +77,19 @@ angular.module('SmashStats')
 
 	})
 	*/
+
+
 	$scope.change = function(){
-		if($scope.results.user_char_selected['name'] == undefined || $scope.results.opp_char_selected['name'] == undefined || $scope.results.opponent['name'] == undefined){
-			//console.log("TEST");
-		} else {
+		if(!$scope.results.opponent){
+			$scope.warning = "Please select an opponent.";
+		}
+		else if(!$scope.results.user_char_selected){
+			$scope.warning = "Please select your character.";
+		}
+		else if(!$scope.results.opp_char_selected){
+			$scope.warning = "Please select your opponent's character.";
+		}
+		else {
 			$scope.notFilled = false;
 			getResults($scope.results.opponent['name'], $scope.results.user_char_selected['name'], $scope.results.opp_char_selected['name']);
 		}
@@ -113,7 +123,7 @@ angular.module('SmashStats')
 				},
 				"Fountain of Dreams" : {
 					"win": 0,
-					"loss": 0	
+					"loss": 0
 				}
 			}
 			for(op in response.data[$scope.user].Opponents){
@@ -162,6 +172,3 @@ function getOpponents(response, user){
 	}
 	return opponent_list
 }
-
-
-

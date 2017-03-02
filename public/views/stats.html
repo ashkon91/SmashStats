@@ -9,7 +9,9 @@
 
 <div class="container" style="padding-top:2%;padding-bottom:12%">
 
-<label ng-if="notFilled" class="col-sm-3 control-label" style="padding-left: 22%">Please select all three options!</label>
+<div class="col-sm-10 col-sm-offset-1 text-center">
+  <p ng-if="notFilled" class="errorText" data-wow-delay="0.5s">{{warning}}</p>
+<div class="row">
 
 <div class="form-group">
   <label class="col-sm-3 control-label">Opponent</label>
