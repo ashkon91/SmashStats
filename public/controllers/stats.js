@@ -5,8 +5,6 @@ angular.module('SmashStats')
 	$scope.notFilled = true;
 	$scope.user = 'Admin';
 	$scope.results = {};
-	$scope.warning = "Select all three options to view your stats!";
-
 	$scope.character_list = [
 	{'name': 'All Characters', 'url' :'https://upload.wikimedia.org/wikipedia/commons/4/49/Smash_Ball.png', 'tier': ''},
 	{'name': 'Fox', 'url': 'https://i.imgur.com/e6iqFph.png', 'tier': 'SS'},
@@ -28,7 +26,7 @@ angular.module('SmashStats')
 	{'name': 'Donkey Kong', 'url': 'https://i.imgur.com/YSdfwls.png', 'tier': 'E'},
 	{'name': 'Ganon', 'url': 'https://i.imgur.com/l9xQfyT.png', 'tier': 'E'},
 	{'name': 'Roy', 'url': 'https://i.imgur.com/dQqG9Ai.png', 'tier': 'F'},
-	{'name': 'G&W', 'url': 'https://i.imgur.com/Hi7BeL2.png', 'tier': 'F'},
+	{'name': 'Game & Watch', 'url': 'https://i.imgur.com/Hi7BeL2.png', 'tier': 'F'},
 	{'name': 'Mewtwo', 'url': 'https://i.imgur.com/GJlkuaG.png', 'tier': 'F'},
 	{'name': 'Zelda', 'url': 'https://i.imgur.com/dHTFDmd.png', 'tier': 'F'},
 	{'name': 'Ness', 'url': 'https://i.imgur.com/NMg9v5g.png', 'tier': 'F'},
@@ -38,6 +36,7 @@ angular.module('SmashStats')
 	];
 
 	$scope.radarLabels = ["Battlefield", "Dreamland", "Final Destination", "Fountain of Dreams", "Yoshi's Story", "Pokemon Stadium"];
+
 
 	$scope.stage_list = [
 	{'name': 'All Stages', 'url' :'https://upload.wikimedia.org/wikipedia/commons/4/49/Smash_Ball.png'},
@@ -52,6 +51,7 @@ angular.module('SmashStats')
 		console.log(response.data);
 
 		jsonResults = response.data[$scope.user];
+		$scope.matchData = jsonResults;
 		$scope.stageStats = jsonResults.Stage;
 
 		$scope.opponent_list = getOpponents(response, $scope.user);
@@ -62,40 +62,34 @@ angular.module('SmashStats')
 		console.log("ERROR");
 	});
 
-	/*$http.get('../data.json')
-	.then(function(data){
-			$scope.names = [];
-			for(val in data.data.Name){
-				$scope.names.push(val);
-			}
-			console.log(data.data);
-			console.log(data.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"]);
-			$scope.wins = data.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].wins;
-			$scope.losses = data.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].losses;
-			$scope.someshit = "THUIEJOPKAKSJFBOPSNAM";
-			console.log(data.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].wins);
-
-	})
-	*/
-
-
 	$scope.change = function(){
-		if(!$scope.results.opponent){
-			$scope.warning = "Please select an opponent.";
-		}
-		else if(!$scope.results.user_char_selected){
-			$scope.warning = "Please select your character.";
-		}
-		else if(!$scope.results.opp_char_selected){
-			$scope.warning = "Please select your opponent's character.";
-		}
-		else {
+		if($scope.results.user_char_selected['name'] == undefined || $scope.results.opp_char_selected['name'] == undefined || $scope.results.opponent['name'] == undefined){
+			//console.log("TEST");
+		} else {
 			$scope.notFilled = false;
 			getResults($scope.results.opponent['name'], $scope.results.user_char_selected['name'], $scope.results.opp_char_selected['name']);
 		}
 
 		console.log($scope.radarData);
 
+	}
+
+
+	function getCharsFromMatchup(user, char){
+		for(op in response.data[$scope.user].Opponents){
+			if(op == user || user == "All Opponents"){
+				matches = response.data[$scope.user].Opponents[op];
+				for(matchid in matches){
+					for(matchC in matches[matchid]){
+						match = matches[matchid][matchC];
+						if( ( match['uChar'] == char || char == "All Characters") && (match['oChar'] == opChar || opChar =="All Characters")){
+							collectedData[match['stage']][match['result']] += 1;
+						}
+					}
+				}
+			}
+		}
+		$scope.matchData
 	}
 
 	function getResults(user, char, opChar){
