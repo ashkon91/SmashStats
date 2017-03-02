@@ -26,7 +26,7 @@ angular.module('SmashStats')
 	{'name': 'Donkey Kong', 'url': 'https://i.imgur.com/YSdfwls.png', 'tier': 'E'},
 	{'name': 'Ganon', 'url': 'https://i.imgur.com/l9xQfyT.png', 'tier': 'E'},
 	{'name': 'Roy', 'url': 'https://i.imgur.com/dQqG9Ai.png', 'tier': 'F'},
-	{'name': 'G&W', 'url': 'https://i.imgur.com/Hi7BeL2.png', 'tier': 'F'},
+	{'name': 'Game & Watch', 'url': 'https://i.imgur.com/Hi7BeL2.png', 'tier': 'F'},
 	{'name': 'Mewtwo', 'url': 'https://i.imgur.com/GJlkuaG.png', 'tier': 'F'},
 	{'name': 'Zelda', 'url': 'https://i.imgur.com/dHTFDmd.png', 'tier': 'F'},
 	{'name': 'Ness', 'url': 'https://i.imgur.com/NMg9v5g.png', 'tier': 'F'},
@@ -36,7 +36,7 @@ angular.module('SmashStats')
 	];
 
 	$scope.radarLabels = ["Battlefield", "Dreamland", "Final Destination", "Fountain of Dreams", "Yoshi's Story", "Pokemon Stadium"];
-	
+
 
 	$scope.stage_list = [
 	{'name': 'All Stages', 'url' :'https://upload.wikimedia.org/wikipedia/commons/4/49/Smash_Ball.png'},
@@ -51,10 +51,11 @@ angular.module('SmashStats')
 		console.log(response.data);
 
 		jsonResults = response.data[$scope.user];
+		$scope.matchData = jsonResults;
 		$scope.stageStats = jsonResults.Stage;
 
 		$scope.opponent_list = getOpponents(response, $scope.user);
-		
+
 		//console.log($scope.opponent_list);
 		//console.log(response.data[$scope.user].Opponents);
 	}, function(error){
@@ -88,6 +89,11 @@ angular.module('SmashStats')
 
 	}
 
+
+	function getCharsFromMatchup(user, char){
+		response.data[$scope.user];
+	}
+
 	function getResults(user, char, opChar){
 		SmashServices.getJSON(function(response){
 			var collectedData = {
@@ -113,7 +119,7 @@ angular.module('SmashStats')
 				},
 				"Fountain of Dreams" : {
 					"win": 0,
-					"loss": 0	
+					"loss": 0
 				}
 			}
 			for(op in response.data[$scope.user].Opponents){
@@ -162,6 +168,3 @@ function getOpponents(response, user){
 	}
 	return opponent_list
 }
-
-
-
