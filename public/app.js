@@ -71,9 +71,14 @@ angular
             controller: 'AddPracCtrl'
         })
         .state('addFriendly', {
-            url: '/addFriendly',
+            url: '/addFriendly_A',
             templateUrl: 'views/addFriendly.html',
             controller: 'AddFriendlyCtrl'
+        })
+        .state('addFriendlyRe', {
+            url: '/addFriendly_B',
+            templateUrl: 'views/addFriendlyRedesign.html',
+            controller: 'AddFriendlyReCtrl'
         })
         .state('practice', {
             url: '/practice',
