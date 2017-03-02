@@ -9,7 +9,12 @@
         <li class="select_list_option" ng-repeat="character in character_list" ng-click="obj.character_selected=character" ng-style="{'background-image':'url('+character.url+')'}">{{character.name}}</li>
     </ul>
 </div>-->
-<div class="container" style="padding-top:8%;padding-bottom:12%">
+
+<div class="col-sm-10 col-sm-offset-1 text-center">
+  <p ng-if="notFilled" class="errorText" data-wow-delay="0.5s">{{warning}}</p>
+<div class="row">
+
+<div class="container" style="padding-top:0%;padding-bottom:8%">
 <div class="form-group">
   <label class="col-sm-3 control-label">Your Character</label>
   <div class="col-sm-6">
@@ -69,7 +74,7 @@
 
 <div id="snackbar">{{matchResult}}</div>
 
-<div class="row" style="text-align: center; padding-bottom:9%">
+<div class="row" style="text-align: center; padding-bottom:10%">
 
     <div class="btn-group">
         <label class="btn btn-info" ng-model="results.result" uib-btn-radio="'win'" uncheckable>Win</label>
@@ -79,5 +84,5 @@
 </div>
 
 <div class="row" style="text-align: center;">
-  <a id="friendlybutton" ng-click='reportWin();openToast()' class="btn btn-primary" style="width: 200px; height 50px;">Confirm</a>
+  <a id="friendlybutton" ng-click='reportWin()' class="btn btn-primary" style="width: 200px; height 50px;">Confirm</a>
 </div>

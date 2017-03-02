@@ -1,6 +1,9 @@
 angular.module('SmashStats')
 .controller('AddFriendlyReCtrl', function($rootScope, $scope, $http, SmashServices) {
-	$rootScope.activePage = 'addFriendlyRe';
+	$rootScope.activePage = 'addFriendly';
+
+	$scope.warning = "Please fill all the fields and then confirm to log the result.";
+	$scope.notFilled = true;
 
 
 	//form ng-model
@@ -60,21 +63,41 @@ angular.module('SmashStats')
 	}
 
   $scope.reportWin = function(player1){
-
+		if(!$scope.results.user_char_selected){
+			$scope.warning = "Please select your character.";
+		}
+		else if(!$scope.results.opp_char_selected){
+			$scope.warning = "Please select your opponent's character.";
+		}
+		else if(!$scope.results.stage){
+			$scope.warning = "Please select a stage.";
+		}
+		else if(!$scope.results.opp_name){
+			$scope.notFilled = true;
+			$scope.warning = "Please specify an opponent.";
+		}
+		else if(!$scope.results.result){
+			$scope.warning = "Please select win or lose.";
+		}
+		else{
+			$scope.notFilled = false;
       var result = {
-		user: "Admin",
-		opp: $scope.results.opp_name,
-		uChar: $scope.results.user_char_selected['name'],
-		oChar: $scope.results.opp_char_selected['name'],
-		stage: $scope.results.stage['name'],
-		result: $scope.results.result
+				user: "Admin",
+				opp: $scope.results.opp_name,
+				uChar: $scope.results.user_char_selected['name'],
+				oChar: $scope.results.opp_char_selected['name'],
+				stage: $scope.results.stage['name'],
+				result: $scope.results.result
       }
+	      SmashServices.pushJSON(result, function(success){
+						console.log(result);
+	          console.log("SUCCESS");
+	      }, function(error){
+	          console.log("ERROR");
+	      });
 
-      SmashServices.pushJSON(result, function(success){
-          console.log("SUCCESS");
-      }, function(error){
-          console.log("ERROR");
-      });
+				$scope.openToast();
+			}
 
   }
 

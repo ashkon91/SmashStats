@@ -62,21 +62,6 @@ angular.module('SmashStats')
 		console.log("ERROR");
 	});
 
-	/*$http.get('../data.json')
-	.then(function(data){
-			$scope.names = [];
-			for(val in data.data.Name){
-				$scope.names.push(val);
-			}
-			console.log(data.data);
-			console.log(data.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"]);
-			$scope.wins = data.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].wins;
-			$scope.losses = data.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].losses;
-			$scope.someshit = "THUIEJOPKAKSJFBOPSNAM";
-			console.log(data.data.Name["Ashkon"].Character["Fox"].Stage["Battlefield"].wins);
-
-	})
-	*/
 	$scope.change = function(){
 		if($scope.results.user_char_selected['name'] == undefined || $scope.results.opp_char_selected['name'] == undefined || $scope.results.opponent['name'] == undefined){
 			//console.log("TEST");
@@ -91,7 +76,20 @@ angular.module('SmashStats')
 
 
 	function getCharsFromMatchup(user, char){
-		response.data[$scope.user];
+		for(op in response.data[$scope.user].Opponents){
+			if(op == user || user == "All Opponents"){
+				matches = response.data[$scope.user].Opponents[op];
+				for(matchid in matches){
+					for(matchC in matches[matchid]){
+						match = matches[matchid][matchC];
+						if( ( match['uChar'] == char || char == "All Characters") && (match['oChar'] == opChar || opChar =="All Characters")){
+							collectedData[match['stage']][match['result']] += 1;
+						}
+					}
+				}
+			}
+		}
+		$scope.matchData
 	}
 
 	function getResults(user, char, opChar){
