@@ -199,3 +199,9 @@ body.navbar-more-show  {
     from {bottom: 150px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
+
+.confirmbutton {
+  background-color: #66ff66;
+  border-color: #66ff66;
+  color: #fff;
+}

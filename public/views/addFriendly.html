@@ -19,7 +19,7 @@
   <label class="col-sm-3 control-label">Your Character</label>
   <div class="col-sm-6">
 
-    <ui-select ng-model="results.user_char_selected" theme="bootstrap">
+    <ui-select ng-model="results.user_char_selected" theme="bootstrap" ng-change="highlightConfirm()">
       <ui-select-match placeholder="What character did you use?">{{$select.selected.name}}&nbsp;<img class="charIcon" width="21" height="21" src="{{$select.selected.url}}"></img></ui-select-match>
       <ui-select-choices group-by="'tier'" repeat="item in character_list | filter: $select.search">
         <span ng-bind-html="item.name | highlight: $select.search"></span>
@@ -35,7 +35,7 @@
   <label class="col-sm-3 control-label">Opponent's Character</label>
   <div class="col-sm-6">
 
-    <ui-select ng-model="results.opp_char_selected" theme="bootstrap">
+    <ui-select ng-model="results.opp_char_selected" theme="bootstrap" ng-change="highlightConfirm()">
       <ui-select-match placeholder="What character did your opponent use?">{{$select.selected.name}}&nbsp;<img class="charIcon" width="21" height="21" src="{{$select.selected.url}}"></img></ui-select-match>
       <ui-select-choices group-by="'tier'" repeat="item in character_list | filter: $select.search">
         <span ng-bind-html="item.name | highlight: $select.search"></span>
@@ -50,7 +50,7 @@
   <label class="col-sm-3 control-label">Map</label>
   <div class="col-sm-6">
 
-    <ui-select ng-model="results.stage" theme="bootstrap">
+    <ui-select ng-model="results.stage" theme="bootstrap" ng-change="highlightConfirm()">
       <ui-select-match placeholder="What stage did you play on?">{{$select.selected.name}}</ui-select-match>
       <ui-select-choices repeat="item in stage_list | filter: $select.search">
         <span  ng-bind-html="item.name | highlight: $select.search"></span>
@@ -65,7 +65,7 @@
   <label class="col-sm-3 control-label">Opponent Name</label>
   <div class="col-sm-6">
 
-    <input type="text" ng-model="results.opp_name" class="form-control">
+    <input type="text" ng-model="results.opp_name" class="form-control" ng-change="highlightConfirm()">
 
   </div>
 </div>
@@ -77,12 +77,12 @@
 <div class="row" style="text-align: center; padding-bottom:10%">
 
     <div class="btn-group">
-        <label class="btn btn-info" ng-model="results.result" uib-btn-radio="'win'" uncheckable>Win</label>
-        <label class="btn btn-danger" ng-model="results.result" uib-btn-radio="'loss'" uncheckable>Lose</label>
+        <label class="btn btn-info" ng-model="results.result" uib-btn-radio="'win'" uncheckable ng-change="highlightConfirm()">Win</label>
+        <label class="btn btn-danger" ng-model="results.result" uib-btn-radio="'loss'" uncheckable ng-change="highlightConfirm()">Lose</label>
     </div>
 
 </div>
 
 <div class="row" style="text-align: center;">
-  <a id="friendlybutton" ng-click='reportWin()' class="btn btn-primary" style="width: 200px; height 50px;">Confirm</a>
+  <a ng-click='reportWin()' class="btn {{buttonStyle}}" style="width: 200px; height 50px;">Confirm</a>
 </div>

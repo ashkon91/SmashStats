@@ -101,5 +101,16 @@ angular.module('SmashStats')
 
   }
 
+	$scope.buttonStyle="btn-primary";
+
+	$scope.highlightConfirm = function(){
+			if($scope.results.user_char_selected && $scope.results.opp_char_selected && $scope.results.stage && $scope.results.opp_name && $scope.results.result){
+				$scope.buttonStyle="confirmbutton";
+			}
+			else{
+				$scope.buttonStyle="btn-primary";
+			}
+	}
+
 
 });
