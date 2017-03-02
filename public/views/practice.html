@@ -23,7 +23,11 @@
 
     <h1>{{seconds}} seconds</h1>
 
-    <button class="btn btn-success" style="margin-bottom:25%" ng-click="startTimer()">Start</button>
+    <button class="btn btn-danger" style="margin-bottom:25%; margin-right: 15px; display: inline-block;" ng-click="stopTimer()">Stop</button>
+
+    <button class="btn btn-primary" style="margin-bottom:25%;" ng-click="setTimer()">Set Timer</button>
+
+    <button class="btn btn-success" style="margin-bottom:25%; margin-left: 15px; display: inline-block;" ng-click="startTimer()">Start</button>
 
 </div>
 <div id="snackbar2">{{result}}</div>
