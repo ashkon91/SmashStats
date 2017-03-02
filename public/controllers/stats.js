@@ -63,9 +63,16 @@ angular.module('SmashStats')
 	});
 
 	$scope.change = function(){
-		if($scope.results.user_char_selected['name'] == undefined || $scope.results.opp_char_selected['name'] == undefined || $scope.results.opponent['name'] == undefined){
-			//console.log("TEST");
-		} else {
+		if(!$scope.results.opponent){
+			$scope.warning = "Please select an opponent.";
+		}
+		else if(!$scope.results.user_char_selected){
+			$scope.warning = "Please select your character.";
+		}
+		else if(!$scope.results.opp_char_selected){
+			$scope.warning = "Please select your opponent's character.";
+		}
+		else {
 			$scope.notFilled = false;
 			getResults($scope.results.opponent['name'], $scope.results.user_char_selected['name'], $scope.results.opp_char_selected['name']);
 		}
@@ -75,22 +82,43 @@ angular.module('SmashStats')
 	}
 
 
-	function getCharsFromMatchup(user, char){
-		for(op in response.data[$scope.user].Opponents){
-			if(op == user || user == "All Opponents"){
-				matches = response.data[$scope.user].Opponents[op];
+	$scope.getCharsFromMatchup = function(){
+		opponent = $scope.results['opponent']['name'];
+		$scope.filterUCharacters = {}
+		$scope.filterOCharacters = {}
+		for(op in $scope.matchData.Opponents){
+			console.log(op)
+			console.log(opponent)
+			console.log(op == opponent)
+			if(op == opponent || opponent == "All Opponents"){
+				matches = $scope.matchData.Opponents[op];
 				for(matchid in matches){
 					for(matchC in matches[matchid]){
 						match = matches[matchid][matchC];
-						if( ( match['uChar'] == char || char == "All Characters") && (match['oChar'] == opChar || opChar =="All Characters")){
-							collectedData[match['stage']][match['result']] += 1;
-						}
+						console.log(match)
+						$scope.filterUCharacters[match['uChar']] = true;
+						$scope.filterOCharacters[match['oChar']] = true;
 					}
 				}
 			}
 		}
-		$scope.matchData
 	}
+
+	$scope.filterUserChars = function(item) {
+		if($scope.filterUCharacters !== undefined){
+			return $scope.filterUCharacters[item.name];
+		}
+		return true;
+
+	};
+
+	$scope.filterOppChars = function(item) {
+		if($scope.filterOCharacters !== undefined){
+			return $scope.filterOCharacters[item.name];
+		}
+		return true;
+	};
+
 
 	function getResults(user, char, opChar){
 		SmashServices.getJSON(function(response){

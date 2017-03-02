@@ -17,7 +17,7 @@
   <label class="col-sm-3 control-label">Opponent</label>
   <div class="col-sm-6">
 
-    <ui-select ng-model="results.opponent" theme="bootstrap" ng-change="change()">
+    <ui-select ng-model="results.opponent" theme="bootstrap" ng-change="change(); getCharsFromMatchup()">
       <ui-select-match placeholder="Who do you want to know?">{{$select.selected.name}}</ui-select-match>
       <ui-select-choices repeat="item in opponent_list | filter: $select.search">
         <span  ng-bind-html="item.name | highlight: $select.search"></span>
@@ -35,7 +35,7 @@
 
     <ui-select ng-model="results.user_char_selected" theme="bootstrap" ng-change="change()">
       <ui-select-match placeholder="What character did you use?">{{$select.selected.name}}&nbsp;<img class="charIcon" width="21" height="21" src="{{$select.selected.url}}"></img></ui-select-match>
-      <ui-select-choices group-by="'tier'" repeat="item in character_list | filter: $select.search">
+      <ui-select-choices group-by="'tier'" repeat="item in character_list | filter: $select.search | filter: filterUserChars">
         <span ng-bind-html="item.name | highlight: $select.search"></span>
         <img src="{{item.url}}" class="charIcon" width="21" height="21" ng-bind-html="item.url | highlight: $select.search"></img>
       </ui-select-choices>
@@ -51,7 +51,7 @@
 
     <ui-select ng-model="results.opp_char_selected" theme="bootstrap" ng-change="change()">
       <ui-select-match placeholder="What character did your opponent use?">{{$select.selected.name}}&nbsp;<img class="charIcon" width="21" height="21" src="{{$select.selected.url}}"></img></ui-select-match>
-      <ui-select-choices group-by="'tier'" repeat="item in character_list | filter: $select.search">
+      <ui-select-choices group-by="'tier'" repeat="item in character_list | filter: $select.search | filter: filterOppChars">
         <span ng-bind-html="item.name | highlight: $select.search"></span>
         <img src="{{item.url}}" class="charIcon" width="21" height="21" ng-bind-html="item.url | highlight: $select.search"></img>
       </ui-select-choices>
