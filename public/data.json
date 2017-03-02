@@ -28,15 +28,6 @@
 		},
 		"Opponents": {
 			"Bob": {
-				"Characters":{
-					"Fox":[
-						"Falco"{
-							"win": 5,
-							"loss":5
-						}
-					]
-				}
-				,
 				"Matches" : [
 					{
 						"uChar": "Fox",
