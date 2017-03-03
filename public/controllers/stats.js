@@ -107,7 +107,7 @@ angular.module('SmashStats')
 	}
 
 	$scope.filterUserChars = function(item) {
-		if($scope.filterUCharacters !== undefined){
+		if($scope.filterUCharacters !== undefined && item.name != "All Characters"){
 			return $scope.filterUCharacters[item.name];
 		}
 		return true;
@@ -115,7 +115,7 @@ angular.module('SmashStats')
 	};
 
 	$scope.filterOppChars = function(item) {
-		if($scope.filterOCharacters !== undefined){
+		if($scope.filterOCharacters !== undefined && item.name != "All Characters"){
 			return $scope.filterOCharacters[item.name];
 		}
 		return true;
