@@ -38,12 +38,12 @@ angular.module('SmashStats')
     ];
 
 
-    $scope.stage_list = [{'name': 'Battlefield', 'url': 'https://www.ssbwiki.com/images/d/de/Battlefieldssbm.jpg'},
-    {'name': 'Dreamland', 'url': 'https://www.ssbwiki.com/images/2/25/SSB4UDreamLand64.png'},
-    {'name': 'Final Destination', 'url': 'https://www.ssbwiki.com/images/9/98/Finaldestination.jpg'},
-    {'name': 'Fountain of Dreams', 'url': 'https://www.ssbwiki.com/images/0/01/Fountainofdreams.jpg'},
-    {'name': "Yoshi's Story", 'url': 'https://www.ssbwiki.com/images/1/1a/Yoshi%27sStory.PNG'},
-    {'name': 'Pokemon Stadium', 'url': 'https://www.ssbwiki.com/images/2/2b/Pokemonstadium.jpg'},
+		$scope.stage_list = [{'name': 'Battlefield', 'url': 'https://www.ssbwiki.com/images/d/de/Battlefieldssbm.jpg', 'id':'Battlefield'},
+    {'name': 'Dreamland', 'url': 'https://www.ssbwiki.com/images/2/25/SSB4UDreamLand64.png', 'id':'Dreamland'},
+    {'name': 'Final Destination', 'url': 'https://www.ssbwiki.com/images/9/98/Finaldestination.jpg', 'id':'Final Destination'},
+    {'name': 'Fountain of Dreams', 'url': 'https://www.ssbwiki.com/images/0/01/Fountainofdreams.jpg', 'id':'Fountain of Dreams'},
+    {'name': "Yoshi's Story", 'url': 'https://www.ssbwiki.com/images/1/1a/Yoshi%27sStory.PNG', 'id':"Yoshis Story"},
+    {'name': 'Pokemon Stadium', 'url': 'https://www.ssbwiki.com/images/2/2b/Pokemonstadium.jpg', 'id':'Pokemon Stadium'},
     ];
 
 	$scope.matchResult = "";
@@ -81,12 +81,16 @@ angular.module('SmashStats')
 		}
 		else{
 			$scope.notFilled = false;
+			//apostrophe issue workaoround
+			if($scope.results.stage == "Yoshis Story"){
+				$scope.results.stage == "Yoshi's Story";
+			}
       var result = {
 				user: "Admin",
 				opp: $scope.results.opp_name,
 				uChar: $scope.results.user_char_selected['name'],
 				oChar: $scope.results.opp_char_selected['name'],
-				stage: $scope.results.stage['name'],
+				stage: $scope.results.stage,
 				result: $scope.results.result
       }
 	      SmashServices.pushJSON(result, function(success){
