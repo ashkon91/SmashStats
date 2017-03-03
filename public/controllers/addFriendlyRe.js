@@ -2,7 +2,7 @@ angular.module('SmashStats')
 .controller('AddFriendlyReCtrl', function($rootScope, $scope, $http, SmashServices) {
 	$rootScope.activePage = 'addFriendly';
 
-	$scope.warning = "Please fill all the fields and then confirm to log the result.";
+	$scope.warning = "Please fill all the fields and then confirm";
 	$scope.notFilled = true;
 
 

@@ -73,7 +73,7 @@
 <label ng-if="!notFilled" class="col-sm-3 control-label" style="padding-left: 37%">Overall stats!</label>
 
 
-<div style="text-align:center" ng-repeat="(name, info) in stageStats" ng-if="!notFilled">
+<div style="text-align:center; margin-bottom: 25%;" ng-repeat="(name, info) in stageStats" ng-if="!notFilled">
     <h3> {{name}} </h3>
     <p> Wins: {{info.win}} Losses: {{info.loss}}</p>
 </div>
