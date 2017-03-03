@@ -54,10 +54,10 @@ angular.module('SmashStats')
 		x.className = "show";
 		setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 		if($scope.results.result == 'win'){
-			$scope.matchResult = $scope.results.user_char_selected['name'] + " beat " + $scope.results.opp_char_selected['name'] + " on " + $scope.results.stage['name'];
+			$scope.matchResult = $scope.results.user_char_selected['name'] + " beat " + $scope.results.opp_char_selected['name'] + " on " + $scope.results.stage;
 		}
 		else{
-			$scope.matchResult = $scope.results.opp_char_selected['name'] + " beat " + $scope.results.user_char_selected['name'] + " on " + $scope.results.stage['name'];
+			$scope.matchResult = $scope.results.opp_char_selected['name'] + " beat " + $scope.results.user_char_selected['name'] + " on " + $scope.results.stage;
 		}
 		console.log($scope.matchResult);
 	}
