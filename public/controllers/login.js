@@ -39,7 +39,7 @@ angular.module('SmashStats')
 	if (firebaseUser) {
 	  console.log("Signed in as:", firebaseUser.uid);
 	  console.log("Name", firebaseUser.displayName);
-	  $rootScope.loggedIn = true;
+	  $rootScope.isLoggedIn = true;
 	  $state.go('home');
 	} else {
 	  console.log("Signed out");
