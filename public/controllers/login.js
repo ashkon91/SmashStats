@@ -29,6 +29,7 @@ angular.module('SmashStats')
 		console.log("hello")
 		$scope.auth.$signInWithPopup('google').then(function(result) {
 		  console.log("Signed in as:", result.user.uid);
+		  $rootScope.isLoggedIn = true;
 		  $state.go('home');
 		}).catch(function(error) {
 		  console.error("Authentication failed:", error);
