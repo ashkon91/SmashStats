@@ -50,7 +50,7 @@
 <div class="form-group">
   <label class="col-sm-3 control-label">Map</label>
   <div class="col-sm-6">
-  <label ng-repeat="stage in stage_list" class="btn btn-info mapRadioBtn" ng-model="results.stage" uib-btn-radio="'{{stage.id}}'" ng-change="highlightConfirm()">{{stage.name}}</label>
+  <label ng-repeat="stage in stage_list" class="btn btn-info mapRadioBtn" ng-model="results.stage" uib-btn-radio="'{{stage.id}}'" ng-change="highlightConfirm();trackStageChange()">{{stage.name}}</label>
 </div>
 </div>
 

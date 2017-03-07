@@ -3,4 +3,8 @@ angular.module('SmashStats')
 	$rootScope.activePage = 'home';
 	$rootScope.isLoggedIn = true;
 
+	$scope.exp ="addFriendly";
+	if($rootScope.variation == 1){
+		$scope.exp ="addFriendlyRe";
+	}
 });
