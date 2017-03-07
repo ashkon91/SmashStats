@@ -141,7 +141,7 @@ function($firebaseAuth) {
             console.log("Name", firebaseUser.displayName)
             $rootScope.isLoggedIn = true;
         } else {
-            $rootScope.isLoggedIn = true;
+            $rootScope.isLoggedIn = false;
             console.log("Signed out");
             console.log($rootScope.activePage)
             if($rootScope.activePage != 'login'){
