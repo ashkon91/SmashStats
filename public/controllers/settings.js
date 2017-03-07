@@ -5,7 +5,7 @@ angular.module('SmashStats')
 	$scope.logout = function(){
 		Auth.$signOut().then(function() {
 		  // Sign-out successful.
-		  	$rootScope.loggedIn = false;
+		  	$rootScope.isLoggedIn = false;
 		  	$state.go('login');
 		}, function(error) {
 		  // An error happened.
