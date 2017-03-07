@@ -98,5 +98,6 @@ angular
 .config(['AnalyticsProvider', function (AnalyticsProvider) {
    // Add configuration code as desired
    AnalyticsProvider.setAccount('UA-93163212-1');  //UU-XXXXXXX-X should be your tracking code
-   //AnalyticsProvider.setExperimentId('12345');
+   AnalyticsProvider.setExperimentId('OqTl88LgR5iVy_5sOCXbJg');
+   // key : 142131724-0
 }]).run(['Analytics', function(Analytics) { }]);
