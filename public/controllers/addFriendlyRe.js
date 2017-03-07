@@ -1,5 +1,5 @@
 angular.module('SmashStats')
-.controller('AddFriendlyReCtrl', function($rootScope, $scope, $http, SmashServices) {
+.controller('AddFriendlyReCtrl', function($rootScope, $scope, $http, SmashServices, Analytics) {
 	$rootScope.activePage = 'addFriendly';
 
 	$scope.warning = "Please fill all the fields and then confirm";
@@ -114,6 +114,10 @@ angular.module('SmashStats')
 			else{
 				$scope.buttonStyle="btn-primary";
 			}
+	}
+
+	$scope.trackStageChange = function(){
+		Analytics.trackEvent('stage', 'change', 'stageChange');
 	}
 
 

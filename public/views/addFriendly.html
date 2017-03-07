@@ -51,7 +51,7 @@
   <label class="col-sm-3 control-label">Map</label>
   <div class="col-sm-6">
 
-    <ui-select ng-model="results.stage" theme="bootstrap" ng-change="highlightConfirm()">
+    <ui-select ng-model="results.stage" theme="bootstrap" ng-change="highlightConfirm();trackStageChange()">
       <ui-select-match placeholder="What stage did you play on?">{{$select.selected.name}}</ui-select-match>
       <ui-select-choices repeat="item in stage_list | filter: $select.search">
         <span  ng-bind-html="item.name | highlight: $select.search"></span>

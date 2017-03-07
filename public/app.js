@@ -6,7 +6,8 @@ angular
     'ngSanitize',
     'chart.js',
     'angular-progress-arc',
-    'timer'
+    'timer',
+    'angular-google-analytics'
     ])
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -87,8 +88,15 @@ angular
             params: {
                 tech: null
             }
-        })
+        });
+
+
 })
 .controller(function($scope, $rootScope){
     $rootScope.isLoggedIn = true;
-});
+})
+.config(['AnalyticsProvider', function (AnalyticsProvider) {
+   // Add configuration code as desired
+   AnalyticsProvider.setAccount('UA-93163212-1');  //UU-XXXXXXX-X should be your tracking code
+   //AnalyticsProvider.setExperimentId('12345');
+}]).run(['Analytics', function(Analytics) { }]);
