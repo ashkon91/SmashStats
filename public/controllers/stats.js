@@ -1,9 +1,11 @@
 angular.module('SmashStats')
-.controller('StatsCtrl', function($rootScope, $scope, $http,SmashServices) {
+.controller('StatsCtrl', function($rootScope, $scope, $http,SmashServices, Auth) {
 	$rootScope.activePage = 'stats';
 
 	$scope.notFilled = true;
-	$scope.user = 'Admin';
+	
+	$scope.user = Auth.$getAuth().displayName;
+
 	$scope.results = {};
 	$scope.character_list = [
 	{'name': 'All Characters', 'url' :'https://upload.wikimedia.org/wikipedia/commons/4/49/Smash_Ball.png', 'tier': ''},

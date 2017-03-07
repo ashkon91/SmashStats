@@ -1,7 +1,7 @@
 angular.module('SmashStats')
-.controller('AddFriendlyCtrl', function($rootScope, $scope, $http, SmashServices, Analytics) {
+.controller('AddFriendlyCtrl', function($rootScope, $scope, $http, SmashServices, Analytics, Auth) {
 	$rootScope.activePage = 'addFriendly';
-
+	$scope.user = Auth.$getAuth();
 	$scope.warning = "Please fill all the fields and then confirm.";
 	$scope.notFilled = true;
 
@@ -82,7 +82,7 @@ angular.module('SmashStats')
 		else{
 			$scope.notFilled = false;
       var result = {
-				user: "Admin",
+				user: $scope.user.displayName,
 				opp: $scope.results.opp_name,
 				uChar: $scope.results.user_char_selected['name'],
 				oChar: $scope.results.opp_char_selected['name'],

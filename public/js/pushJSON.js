@@ -33,7 +33,7 @@ module.exports = function(req,res){
     				"loss" : 0
     			}
     		},
-    		"Opponents": []
+    		"Opponents": {}
     	}
     }
 
@@ -45,7 +45,9 @@ module.exports = function(req,res){
 
 
     if(!data[body.user]['Opponents'].hasOwnProperty(body.opp)){
+        console.log("making new opponent")
         data[body.user]['Opponents'][body.opp] = {"Matches": []}
+        console.log("NEWDATA: ", data[body.user])
     }
     jsonObj = {
         "uChar": body.uChar,

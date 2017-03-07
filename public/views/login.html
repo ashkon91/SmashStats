@@ -11,26 +11,30 @@
             <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
                 <div class="row">
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input ng-model="un" class="form-control" id="username" type="text">
+                        <label for="email">Email</label>
+                        <input ng-model="credentials.email" class="form-control" id="email" type="email">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input ng-model="pass" class="form-control" id="password" type="password">
+                        <input ng-model="credentials.password" class="form-control" id="password" type="password">
                     </div>
                 </div>
                 <div class="row">
                     <div class=" wow fadeInUp" data-wow-delay="1.4s">
-                        <a ng-click='login(un,pass)' class="btn btn-primary btn-lg scroll">Login</a>
-                        <!-- <a ng-click='newUser(un,pass)' class="btn btn-primary btn-lg scroll">New User</a> -->
+                        <a ng-click='signInEmail()' class="btn btn-primary btn-lg scroll">Login</a>
+                        <!--<a ng-click='newUser(un,pass)' class="btn btn-primary btn-lg scroll">New User</a>-->
                     </div>
+                </div>
+                <div class="row" style="padding-top:10%">
+                  <button class="btn btn-success" ng-click="signInGoogle()">Sign In With Google</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <div class="row header-in3fo" ng-if="isNewUser">
   <div class="headerBlock">
     <h1 class="wow fadeIn">New player?</h1>

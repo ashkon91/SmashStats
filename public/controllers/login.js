@@ -1,37 +1,48 @@
 angular.module('SmashStats')
-.controller('LoginCtrl', function($rootScope, $scope, $state, $stateParams) {
-	$rootScope.activePage = 'login';
-	$scope.isNewUser = false;
-	$scope.failedLogin = false;
-	$scope.errorText = "";
+.controller('LoginCtrl', function($rootScope, $scope, $state, $stateParams, Auth, $timeout) {
 
-	if($stateParams.from == "registerPage"){
-		$scope.errorText = "Welcome " + $stateParams.who + "! Please enter your username and password to login."
+	$scope.auth = Auth;
+	$rootScope.activePage="login";
+
+	$scope.credentials = {
+		"email": "",
+		"password": ""
 	}
 
-	console.log($stateParams.from);
-	$scope.login = function(username,password) {
-		console.log(password);
-		if(username == "admin", password == "password"){
-			$state.go('home',{});
-		}else if((username == undefined || username == "") && (password == undefined || password == "")){
-			$scope.failedLogin = true;
-			$scope.errorText = "Please enter a valid username & password!";
-		}else if(username == undefined || username == ""){
-			$scope.failedLogin = true;
-			$scope.errorText = "Please enter a valid username!";
-		}else if(password == undefined || password == ""){
-			$scope.failedLogin = true;
-			$scope.errorText = "Please enter a valid password!";
-		}else{
-			$scope.failedLogin = true;
-			$scope.errorText = "Username and password combination is not valid!";
-		}
 
+	// any time auth state changes, add the user data to scope
+	$scope.auth.$onAuthStateChanged(function(firebaseUser) {
+	  $scope.firebaseUser = firebaseUser;
+	});
+
+
+	$scope.signInEmail = function() {
+		$scope.auth.$signInWithEmailAndPassword($scope.credentials.email, $scope.credentials.password)
+		.then(function(firebaseUser) {
+		  console.log("Signed in as:", firebaseUser.uid);
+		  $state.go('home');
+		}).catch(function(error) {
+		  console.error("Authentication failed:", error);
+		});
 	}
-	$scope.newUser = function(username,password){
-		$scope.isNewUser = true;
+	$scope.signInGoogle = function() {
+		console.log("hello")
+		$scope.auth.$signInWithPopup('google').then(function(result) {
+		  console.log("Signed in as:", result.user.uid);
+		  $state.go('home');
+		}).catch(function(error) {
+		  console.error("Authentication failed:", error);
+		});
 	}
 
+	var firebaseUser = $scope.auth.$getAuth();
+	if (firebaseUser) {
+	  console.log("Signed in as:", firebaseUser.uid);
+	  console.log("Name", firebaseUser.displayName);
+	  $rootScope.loggedIn = true;
+	  $state.go('home');
+	} else {
+	  console.log("Signed out");
+	}
 
 });
