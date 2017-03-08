@@ -1,5 +1,5 @@
 angular.module('SmashStats')
-.controller('AddFriendlyReCtrl', function($rootScope, $scope, $http, SmashServices, Analytics) {
+.controller('AddFriendlyReCtrl', function($rootScope, $scope, $http, SmashServices, Analytics, Auth) {
 	$rootScope.activePage = 'addFriendly';
 	$scope.user = Auth.$getAuth();
 	$scope.warning = "Please fill all the fields and then confirm";
@@ -30,7 +30,7 @@ angular.module('SmashStats')
     {'name': 'Roy', 'url': 'https://i.imgur.com/dQqG9Ai.png', 'tier': 'F'},
     {'name': 'G&W', 'url': 'https://i.imgur.com/Hi7BeL2.png', 'tier': 'F'},
     {'name': 'Mewtwo', 'url': 'https://i.imgur.com/GJlkuaG.png', 'tier': 'F'},
-    {'name': 'Zelda', 'url': 'https://i.imgur.com/dHTFDmd.png', 'tier': 'F'},
+    {'name': 'Zelda', 'url': 'https://i.imgur.com/dHTgulpFDmd.png', 'tier': 'F'},
     {'name': 'Ness', 'url': 'https://i.imgur.com/NMg9v5g.png', 'tier': 'F'},
     {'name': 'Pichu', 'url': 'https://i.imgur.com/JEZXgZK.png', 'tier': 'G'},
     {'name': 'Bowser', 'url': 'https://i.imgur.com/Xc5TYpa.png', 'tier': 'G'},
