@@ -1,7 +1,7 @@
 angular.module('SmashStats')
 .controller('AddFriendlyReCtrl', function($rootScope, $scope, $http, SmashServices, Analytics) {
 	$rootScope.activePage = 'addFriendly';
-
+	$scope.user = Auth.$getAuth();
 	$scope.warning = "Please fill all the fields and then confirm";
 	$scope.notFilled = true;
 
@@ -86,7 +86,7 @@ angular.module('SmashStats')
 				$scope.results.stage == "Yoshi's Story";
 			}
       var result = {
-				user: "Admin",
+				user: $scope.user.displayName,
 				opp: $scope.results.opp_name,
 				uChar: $scope.results.user_char_selected['name'],
 				oChar: $scope.results.opp_char_selected['name'],
