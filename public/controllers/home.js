@@ -3,11 +3,4 @@ angular.module('SmashStats')
 	$rootScope.activePage = 'home';
 
 	$scope.auth = Auth;
-
-
-	$scope.exp ="addFriendly";
-	if($rootScope.variation == 1){
-		$scope.exp ="addFriendlyRe";
-	}
-
 });

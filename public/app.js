@@ -7,7 +7,6 @@ angular
     'chart.js',
     'angular-progress-arc',
     'timer',
-    'angular-google-analytics',
     'firebase'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
@@ -99,38 +98,62 @@ function($firebaseAuth) {
 }
 ])
 .factory("User", ["$firebaseObject",
-  function($firebaseObject) {
-    return function(username) {
-      // create a reference to the database node where we will store our data
-      var ref = firebase.database().ref("users").push();
-      var profileRef = ref.child(username);
+  function($firebaseObject, Auth) {
+      return function(id) {
+          var ref = firebase.database().ref('users');
 
-      // return it as a synchronized object
-      return $firebaseObject(profileRef);
-    }
+          var obj = $firebaseObject(ref);
+          console.log(obj)
+          obj.$loaded().then(function() {
+              console.log(obj)
+              // create a reference to the database node where we will store our data
+              if(obj[id] == undefined || obj[id] == null){
+                  //initalize user
+                  obj[id] = {
+                      "Stage" : {
+                          "Battlefield": {
+                              "win": 0,
+                              "loss" : 0
+                          },
+                          "Final Destination" : {
+                              "win": 0,
+                              "loss" : 0
+                          },
+                          "Dreamland" : {
+                              "win" : 0,
+                              "loss" : 0
+                          },
+                          "Yoshi's Story" : {
+                              "win" : 0,
+                              "loss" : 0
+                          },
+                          "Pokemon Stadium" : {
+                              "win" : 0,
+                              "loss" : 0
+                          },
+                          "Fountain of Dreams" : {
+                              "win" : 0,
+                              "loss" : 0
+                          }
+                      },
+                      "Opponents": {
+                      }
+                  }
+                obj.$save();
+              }
+
+              return $firebaseObject(ref.child(id))
+          });
+          return $firebaseObject(ref.child(id))
+      }
+
   }
 ])
 .controller(function($scope, $rootScope, Auth){
     $rootScope.isLoggedIn = true;
 
 })
-.config(['AnalyticsProvider', function (AnalyticsProvider) {
-    // Add configuration code as desired
-    AnalyticsProvider.setAccount('UA-93163212-1');  //UU-XXXXXXX-X should be your tracking code
-    AnalyticsProvider.setExperimentId('OqTl88LgR5iVy_5sOCXbJg')
-    // key : 142131724-0
-}]).run(function(Analytics, $rootScope, Auth, $timeout, $state) {
-
-    var variation = cxApi.chooseVariation();
-    if(variation == 0){
-        console.log("Original")
-    }
-    else if(variation == 1){
-        console.log("Variant")
-    }
-    cxApi.setChosenVariation(variation);
-
-    $rootScope.variation = variation;
+.run(function($rootScope, Auth, $timeout, $state) {
 
     $timeout(function () {
 
@@ -138,8 +161,11 @@ function($firebaseAuth) {
 
         if (firebaseUser) {
             console.log("Signed in as:", firebaseUser.uid);
-            console.log("Name", firebaseUser.displayName)
+            console.log("Name:", firebaseUser.displayName)
             $rootScope.isLoggedIn = true;
+            if($rootScope.activePage == 'login'){
+                $state.go("home")
+            }
         } else {
             $rootScope.isLoggedIn = false;
             console.log("Signed out");

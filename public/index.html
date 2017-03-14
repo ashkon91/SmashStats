@@ -45,7 +45,7 @@
 
 </head><!--/head-->
 
-<body style="overflow-x: hidden; height: 100%;">
+<body ng-cloak style="overflow-x: hidden; height: 100%;">
 
 
 
@@ -59,7 +59,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-bottom" ng-if="isLoggedIn">
         <div class="container">
             <div class="navbar-header hidden-xs">
-                <a class="navbar-brand" href="#">MeleeStats</a>
+                <a class="navbar-brand" ui-sref="home" ng-class="{'active': activePage === 'home'}">MeleeStats</a>
             </div>
 
             <ul class="nav navbar-nav navbar-right mobile-bar">

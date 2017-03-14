@@ -1,10 +1,18 @@
 angular.module('SmashStats')
-.controller('StatsCtrl', function($rootScope, $scope, $http,SmashServices, Auth) {
+.controller('StatsCtrl', function($rootScope, $scope, $http,SmashServices, Auth, User) {
 	$rootScope.activePage = 'stats';
 
 	$scope.notFilled = true;
-	
+
 	$scope.user = Auth.$getAuth().displayName;
+	var id = Auth.$getAuth().uid;
+
+	$scope.currUser = User(id);
+
+	$scope.currUser.$loaded(function(){
+		init();
+	})
+
 
 	$scope.results = {};
 	$scope.character_list = [
@@ -49,20 +57,29 @@ angular.module('SmashStats')
 	{'name': "Yoshi's Story", 'url': 'https://www.ssbwiki.com/images/1/1a/Yoshi%27sStory.PNG'},
 	{'name': 'Pokemon Stadium', 'url': 'https://www.ssbwiki.com/images/2/2b/Pokemonstadium.jpg'},
 	];
-	SmashServices.getJSON(function(response){
-		console.log(response.data);
 
-		jsonResults = response.data[$scope.user];
+
+	var init = function(){
+		jsonResults = $scope.currUser;
 		$scope.matchData = jsonResults;
 		$scope.stageStats = jsonResults.Stage;
 
-		$scope.opponent_list = getOpponents(response, $scope.user);
-
-		//console.log($scope.opponent_list);
-		//console.log(response.data[$scope.user].Opponents);
-	}, function(error){
-		console.log("ERROR");
-	});
+		$scope.opponent_list = getOpponents(jsonResults);
+	}
+	// SmashServices.getJSON(function(response){
+	// 	console.log(response.data);
+	//
+	// 	jsonResults = response.data[$scope.user];
+	// 	$scope.matchData = jsonResults;
+	// 	$scope.stageStats = jsonResults.Stage;
+	//
+	// 	$scope.opponent_list = getOpponents(response, $scope.user);
+	//
+	// 	//console.log($scope.opponent_list);
+	// 	//console.log(response.data[$scope.user].Opponents);
+	// }, function(error){
+	// 	console.log("ERROR");
+	// });
 
 	$scope.warning = "Select all three options to view your stats!";
 
@@ -81,8 +98,6 @@ angular.module('SmashStats')
 			getResults($scope.results.opponent['name'], $scope.results.user_char_selected['name'], $scope.results.opp_char_selected['name']);
 		}
 
-		console.log($scope.radarData);
-
 	}
 
 
@@ -91,15 +106,12 @@ angular.module('SmashStats')
 		$scope.filterUCharacters = {}
 		$scope.filterOCharacters = {}
 		for(op in $scope.matchData.Opponents){
-			console.log(op)
-			console.log(opponent)
-			console.log(op == opponent)
+
 			if(op == opponent || opponent == "All Opponents"){
 				matches = $scope.matchData.Opponents[op];
 				for(matchid in matches){
 					for(matchC in matches[matchid]){
 						match = matches[matchid][matchC];
-						console.log(match)
 						$scope.filterUCharacters[match['uChar']] = true;
 						$scope.filterOCharacters[match['oChar']] = true;
 					}
@@ -123,56 +135,98 @@ angular.module('SmashStats')
 		return true;
 	};
 
-
 	function getResults(user, char, opChar){
-		SmashServices.getJSON(function(response){
-			var collectedData = {
-				"Battlefield" : {
-					"win": 0,
-					"loss": 0
-				},
-				"Final Destination" : {
-					"win": 0,
-					"loss": 0
-				},
-				"Dreamland" : {
-					"win": 0,
-					"loss": 0
-				},
-				"Yoshi's Story" : {
-					"win": 0,
-					"loss": 0
-				},
-				"Pokemon Stadium" : {
-					"win": 0,
-					"loss": 0
-				},
-				"Fountain of Dreams" : {
-					"win": 0,
-					"loss": 0
-				}
+		var collectedData = {
+			"Battlefield" : {
+				"win": 0,
+				"loss": 0
+			},
+			"Final Destination" : {
+				"win": 0,
+				"loss": 0
+			},
+			"Dreamland" : {
+				"win": 0,
+				"loss": 0
+			},
+			"Yoshi's Story" : {
+				"win": 0,
+				"loss": 0
+			},
+			"Pokemon Stadium" : {
+				"win": 0,
+				"loss": 0
+			},
+			"Fountain of Dreams" : {
+				"win": 0,
+				"loss": 0
 			}
-			for(op in response.data[$scope.user].Opponents){
-				if(op == user || user == "All Opponents"){
-					matches = response.data[$scope.user].Opponents[op];
-					for(matchid in matches){
-						for(matchC in matches[matchid]){
-							match = matches[matchid][matchC];
-							if( ( match['uChar'] == char || char == "All Characters") && (match['oChar'] == opChar || opChar =="All Characters")){
-								collectedData[match['stage']][match['result']] += 1;
-							}
+		}
+		for(op in $scope.currUser.Opponents){
+			if(op == user || user == "All Opponents"){
+				matches = $scope.currUser.Opponents[op];
+				for(matchid in matches){
+					for(matchC in matches[matchid]){
+						match = matches[matchid][matchC];
+						if( ( match['uChar'] == char || char == "All Characters") && (match['oChar'] == opChar || opChar =="All Characters")){
+							collectedData[match['stage']][match['result']] += 1;
 						}
 					}
 				}
 			}
-			console.log(collectedData);
-			formatResults(collectedData);
+		}
 
-
-		}, function(error){
-			console.log("ERROR");
-		});
+		formatResults(collectedData);
 	}
+	// function getResults(user, char, opChar){
+	// 	SmashServices.getJSON(function(response){
+	// 		var collectedData = {
+	// 			"Battlefield" : {
+	// 				"win": 0,
+	// 				"loss": 0
+	// 			},
+	// 			"Final Destination" : {
+	// 				"win": 0,
+	// 				"loss": 0
+	// 			},
+	// 			"Dreamland" : {
+	// 				"win": 0,
+	// 				"loss": 0
+	// 			},
+	// 			"Yoshi's Story" : {
+	// 				"win": 0,
+	// 				"loss": 0
+	// 			},
+	// 			"Pokemon Stadium" : {
+	// 				"win": 0,
+	// 				"loss": 0
+	// 			},
+	// 			"Fountain of Dreams" : {
+	// 				"win": 0,
+	// 				"loss": 0
+	// 			}
+	// 		}
+	// 		for(op in response.data[$scope.user].Opponents){
+	// 			if(op == user || user == "All Opponents"){
+	// 				matches = response.data[$scope.user].Opponents[op];
+	// 				for(matchid in matches){
+	// 					for(matchC in matches[matchid]){
+	// 						match = matches[matchid][matchC];
+	// 						if( ( match['uChar'] == char || char == "All Characters") && (match['oChar'] == opChar || opChar =="All Characters")){
+	// 							collectedData[match['stage']][match['result']] += 1;
+	// 						}
+	// 					}
+	// 				}
+	// 			}
+	// 		}
+	// 		console.log(collectedData);
+	// 		formatResults(collectedData);
+	//
+	//
+	// 	}, function(error){
+	// 		console.log("ERROR");
+	// 	});
+	// }
 
 	function formatResults(data){
 		var gameRest = {};
@@ -181,7 +235,6 @@ angular.module('SmashStats')
 			total = data[stage]['loss'] + win;
 			gameRest[stage] = (win/total) * 100;
 		}
-		console.log(gameRest);
 		$scope.radarData =[
 		[gameRest['Battlefield'], gameRest['Dreamland'], gameRest['Final Destination'], gameRest['Fountain of Dreams'], gameRest["Yoshi's Story"],  gameRest['Pokemon Stadium']]
 		];
@@ -190,10 +243,10 @@ angular.module('SmashStats')
 
 });
 
-function getOpponents(response, user){
+function getOpponents(response){
 	opponent_list = [];
 	opponent_list.push({'name' : 'All Opponents'});
-	for(val in response.data[user].Opponents){
+	for(val in response.Opponents){
 		opponent_list.push({'name': val});
 	}
 	return opponent_list

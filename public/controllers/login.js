@@ -1,5 +1,5 @@
 angular.module('SmashStats')
-.controller('LoginCtrl', function($rootScope, $scope, $state, $stateParams, Auth, $timeout) {
+.controller('LoginCtrl', function($rootScope, $scope, $state, $stateParams, Auth, User) {
 
 	$scope.auth = Auth;
 	$rootScope.activePage="login";
@@ -25,6 +25,7 @@ angular.module('SmashStats')
 		  console.error("Authentication failed:", error);
 		});
 	}
+
 	$scope.signInGoogle = function() {
 		console.log("hello")
 		$scope.auth.$signInWithPopup('google').then(function(result) {

@@ -1,5 +1,5 @@
 angular.module('SmashStats')
-.controller('AddFriendlyCtrl', function($rootScope, $scope, $http, SmashServices, Analytics, Auth) {
+.controller('AddFriendlyCtrl', function($rootScope, $scope, $http, SmashServices, Auth) {
 	$rootScope.activePage = 'addFriendly';
 	$scope.user = Auth.$getAuth();
 	$scope.warning = "Please fill all the fields and then confirm.";
