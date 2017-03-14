@@ -85,7 +85,7 @@ $scope.reportWin = function(player1){
 		$scope.notFilled = false;
 		//apostrophe issue workaoround
 		if($scope.results.stage == "Yoshis Story"){
-			$scope.results.stage == "Yoshi's Story";
+			$scope.results.stage = "Yoshi's Story";
 		}
 		var result = {
 			user: $scope.user.displayName,
